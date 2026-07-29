@@ -179,9 +179,11 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             <h3 className="text-2xl font-serif font-bold text-white mb-8 leading-snug">
               Ready to start, or ready to help someone else start?
             </h3>
-            <Button className="w-full bg-white text-[#a8248c] hover:bg-gray-100 rounded-full font-bold text-xs uppercase tracking-widest mb-4 py-6 transition-colors">
-              APPLY FOR PROGRAMME
-            </Button>
+            <link rel="stylesheet" href="/programmes">
+              <Button className="w-full bg-white text-[#a8248c] hover:bg-gray-100 rounded-full font-bold text-xs uppercase tracking-widest mb-4 py-6 transition-colors">
+                APPLY FOR PROGRAMME
+              </Button>
+            </link>
             <Button className="w-full bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-full font-bold text-xs uppercase tracking-widest py-6 transition-colors">
               PARTNER WITH US
             </Button>

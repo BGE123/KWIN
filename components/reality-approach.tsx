@@ -49,10 +49,17 @@ export default function RealityApproach() {
             </p>
           </div>
 
-          {/* Image with decorative dashed border */}
-          <div className="relative w-full aspect-square max-w-md mx-auto lg:ml-auto">
-            {/* Dashed background square */}
-            <div className="absolute inset-0 border-2 border-dashed border-[#a8248c]/30 translate-x-6 translate-y-6 z-0" />
+          {/* Image with Figma X-Pattern Offset Background */}
+          <div className="relative w-full aspect-square max-w-md mx-auto lg:ml-auto mt-8 lg:mt-0">
+            {/* The repeating 'X' pattern (Offset to the bottom-left to match Figma) */}
+            <div
+              className="absolute inset-0 z-0 -translate-x-6 translate-y-6 md:-translate-x-10 md:translate-y-10"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 12L20 20M20 12L12 20' stroke='%23a8248c' stroke-width='1.5' stroke-linecap='round' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+                backgroundSize: "32px 32px",
+              }}
+            />
+
             {/* Main Image */}
             <div className="absolute inset-0 z-10 bg-gray-200">
               <Image

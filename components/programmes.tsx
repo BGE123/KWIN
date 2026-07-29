@@ -86,14 +86,24 @@ export default function Programmes() {
               </div>
 
               {/* Image with offset background */}
-              <div className="flex-1 w-full relative">
+              {/* Added 'group cursor-pointer' here to trigger hover states together */}
+              <div className="flex-1 w-full relative group cursor-pointer">
                 <div className="relative w-full aspect-[4/3] max-w-lg mx-auto">
                   {/* The solid purple offset block */}
+                  {/* Added transition and shifted it slightly further on hover for a 3D parallax effect */}
                   <div
-                    className={`absolute inset-0 bg-[#a8248c] ${prog.reverse ? "translate-x-4 md:translate-x-6" : "-translate-x-4 md:-translate-x-6"} translate-y-4 md:translate-y-6 z-0`}
+                    className={`absolute inset-0 bg-[#a8248c] z-0 transition-transform duration-500 ease-out
+                      ${
+                        prog.reverse
+                          ? "translate-x-4 md:translate-x-6 group-hover:translate-x-6 md:group-hover:translate-x-8"
+                          : "-translate-x-4 md:-translate-x-6 group-hover:-translate-x-6 md:group-hover:-translate-x-8"
+                      } 
+                      translate-y-4 md:translate-y-6 group-hover:translate-y-6 md:group-hover:translate-y-8`}
                   />
-                  {/* The Image */}
-                  <div className="absolute inset-0 z-10 bg-gray-200">
+
+                  {/* The Image Wrapper */}
+                  {/* Added scale, negative Y translation (lift up), and shadow-2xl on hover */}
+                  <div className="absolute inset-0 z-10 bg-gray-200 transition-all duration-500 ease-out group-hover:-translate-y-3 group-hover:scale-105 group-hover:shadow-2xl">
                     <Image
                       src={prog.image}
                       alt={prog.title}

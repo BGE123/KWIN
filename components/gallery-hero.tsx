@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GalleryHero() {
   return (
-    <section className="relative w-full h-[60vh] min-h-[500px] bg-gray-900">
+    <section className="relative w-full h-[90vh] min-h-[500px] bg-gray-900">
       {/* Background Image */}
       <Image
         src="/gallery/gallery-hero.jpg"
