@@ -32,7 +32,7 @@ export default function ApplyHero() {
         className="object-cover opacity-60"
         priority
       />
-      <div className="absolute inset-0 bg-black/40" />{" "}
+      <div className="absolute inset-0 bg-black/40 no-invert" />{" "}
       {/* Dark overlay for text readability */}
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-2xl mt-16">

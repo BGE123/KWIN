@@ -192,3 +192,12 @@ html.dark-theme .no-invert {
 body {
   font-family: var(--font-sans), system-ui, sans-serif !important;
 }
+.no-invert,
+.no-invert * {
+  filter: none !important;
+}
+html.dark img,
+body.dark img,
+.dark img {
+  filter: invert(1) hue-rotate(180deg) !important;
+}

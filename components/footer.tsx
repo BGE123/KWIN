@@ -55,7 +55,7 @@ function LinkedinIcon({ className }: { className?: string }) {
 
 export function Footer() {
   return (
-    <footer id="contact" className="relative bg-[#2D0A2E] text-white">
+    <footer id="contact" className="relative bg-[#2D0A2E] text-white no-invert">
       {/* Stay Connected banner - overlaps top edge */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative -translate-y-1/2 bg-[#9B2185] px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">

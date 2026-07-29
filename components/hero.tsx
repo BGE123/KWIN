@@ -1,25 +1,30 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Counter from "@/components/counter";
-import Link from "next/link";
 
 export function Hero() {
   return (
     <section
       id="home"
-      // 1. Changed h-screen to min-h-screen so it can grow on tall mobile screens!
-      // Added flex flex-col to help the inner container stretch
-      className="relative w-full min-h-screen bg-cover bg-center overflow-hidden flex flex-col"
-      style={{
-        backgroundImage: 'url("/landing-page/heroimg.jpg")',
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
+      className="relative w-full min-h-screen overflow-hidden flex flex-col"
     >
-      <div className="absolute inset-0 bg-black/40 no-invert" />
+      {/* 1. STANDARD HTML IMG TAG - Completely immune to Next.js wrapper bugs */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img
+          src="/landing-page/heroimg.jpg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
 
-      {/* 2. Changed h-full to flex-1 and added pt-32 to clear the fixed glass header */}
-      <div className="relative flex-1 flex flex-col justify-between pt-32 pb-12 px-6 max-w-[1440px] mx-auto w-full">
-        {/* Added mb-12 so the text doesn't crash into the stats box on mobile */}
+      {/* 2. SOLID DARK OVERLAY - Explicitly styled so dark mode can't turn it white */}
+      <div
+        className="absolute inset-0 z-0 no-invert"
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.45)" }}
+      />
+
+      {/* 3. CONTENT CONTAINER */}
+      <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 max-w-[1440px] mx-auto w-full">
         <div className="flex-1 flex flex-col justify-center mb-12">
           <div className="max-w-2xl">
             <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight text-balance font-serif">
@@ -34,14 +39,16 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Link href="/programmes">
+              <Link href="/programmes" className="w-full sm:w-auto">
                 <Button className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white rounded-full px-8 py-6 text-base font-semibold">
                   APPLY FOR PROGRAMME
                 </Button>
               </Link>
-              <Button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold">
-                GET INVOLVED
-              </Button>
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-semibold">
+                  GET INVOLVED
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

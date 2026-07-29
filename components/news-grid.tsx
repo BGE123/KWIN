@@ -141,7 +141,7 @@ export default function NewsGrid() {
                       <div className="flex items-center gap-2">
                         <div className="relative w-6 h-6 rounded-full overflow-hidden bg-gray-200">
                           <Image
-                            src="/placeholder-avatar.jpg"
+                            src="/pic7.png"
                             alt="Author"
                             fill
                             className="object-cover"

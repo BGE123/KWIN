@@ -8,7 +8,7 @@ const newsItems = [
     date: "Oct 10, 2025",
     author: "Bekwa Undie",
     image: "/landing-page/hap1.jpg",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/pic2.png",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const newsItems = [
     date: "Sep 12, 2025",
     author: "Bekwa Undie",
     image: "/landing-page/hap2.jpg",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/pic6.png",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const newsItems = [
     date: "Sep 15, 2025",
     author: "Bekwa Undie",
     image: "/landing-page/hap3.jpg",
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/pic5.png",
   },
 ];
 

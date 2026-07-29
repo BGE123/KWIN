@@ -16,7 +16,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       title: "Empowering Girls Through Community Engagement",
       image: "/events/img5.jpg", // Replace with your actual image paths
       author: "Bekwa Undie",
-      authorImage: "/placeholder-avatar.jpg",
+      authorImage: "/pic5.png",
       readTime: "3 mins read",
     },
     {
@@ -26,7 +26,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       title: "Building Sustainable Businesses for Tomorrow",
       image: "/events/img2.jpg",
       author: "Amina Yusuf",
-      authorImage: "/placeholder-avatar.jpg",
+      authorImage: "/pic2.png",
       readTime: "5 mins read",
     },
     {
@@ -36,7 +36,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       title: "Why Tech Skills are Crucial for the Future",
       image: "/events/img3.jpg",
       author: "Sarah Johnson",
-      authorImage: "/placeholder-avatar.jpg",
+      authorImage: "/pic1.png",
       readTime: "4 mins read",
     },
   ];
@@ -58,7 +58,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           <div className="flex items-center gap-2">
             <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gray-200">
               <Image
-                src="/placeholder-avatar.jpg"
+                src="/pic1.jpg"
                 alt="Bekwa Undie"
                 fill
                 className="object-cover"
@@ -179,11 +179,11 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             <h3 className="text-2xl font-serif font-bold text-white mb-8 leading-snug">
               Ready to start, or ready to help someone else start?
             </h3>
-            <link rel="stylesheet" href="/programmes">
+            <Link href="/programmes">
               <Button className="w-full bg-white text-[#a8248c] hover:bg-gray-100 rounded-full font-bold text-xs uppercase tracking-widest mb-4 py-6 transition-colors">
                 APPLY FOR PROGRAMME
               </Button>
-            </link>
+            </Link>
             <Button className="w-full bg-transparent border-2 border-white text-white hover:bg-white/10 rounded-full font-bold text-xs uppercase tracking-widest py-6 transition-colors">
               PARTNER WITH US
             </Button>

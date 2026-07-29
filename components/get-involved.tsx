@@ -55,22 +55,22 @@ export default function GetInvolved() {
               />
 
               {/* Gradient Overlays (Top for title, Bottom for text) */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90 z-10 no-invert" />
 
               {/* Card Content */}
               <div className="absolute inset-0 z-20 flex flex-col justify-between p-8">
                 {/* Top Title */}
-                <h3 className="text-3xl font-serif font-bold text-white">
+                <h3 className="text-3xl font-serif font-bold text-white no-invert">
                   {option.title}
                 </h3>
 
                 {/* Bottom Content */}
                 <div>
-                  <p className="text-sm text-gray-200 mb-6 leading-relaxed opacity-90">
+                  <p className="text-sm text-gray-200 mb-6 leading-relaxed opacity-90 no-invert">
                     {option.description}
                   </p>
 
-                  <div className="flex items-center text-xs font-bold uppercase tracking-widest text-white group-hover:text-gray-300 transition-colors">
+                  <div className="flex items-center text-xs font-bold uppercase tracking-widest text-white group-hover:text-gray-300 transition-colors no-invert">
                     {option.cta} <ArrowRight className="ml-2 h-4 w-4" />
                   </div>
                 </div>

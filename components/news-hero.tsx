@@ -70,7 +70,7 @@ export default function NewsHero() {
                   <div className="flex items-center gap-3">
                     <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gray-200">
                       <Image
-                        src="/placeholder-avatar.jpg"
+                        src="/pic4.jpg"
                         alt="Author"
                         fill
                         className="object-cover"
