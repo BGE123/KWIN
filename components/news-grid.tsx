@@ -1,9 +1,35 @@
+"use client";
+
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search, Clock, Calendar } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 
-// Added a 'slug' property to each clickable item!
-const gridItems = [
+type ArticleItem = {
+  id: number;
+  type: "article";
+  title: string;
+  author: string;
+  readTime: string;
+  image: string;
+  slug: string;
+};
+
+type EventItem = {
+  id: number;
+  type: "event";
+  title: string;
+  date: string;
+  bgColor: string;
+  textColor: string;
+  dateColor: string;
+  slug: string;
+  image: string; // the paired photo, now part of the same card
+};
+
+type GridItem = ArticleItem | EventItem;
+
+const gridItems: GridItem[] = [
   {
     id: 1,
     type: "article",
@@ -14,11 +40,6 @@ const gridItems = [
     slug: "empowering-girls-through-community-engagement",
   },
   {
-    id: 2,
-    type: "image",
-    image: "/events/img3.jpg",
-  },
-  {
     id: 3,
     type: "event",
     title: "Annual TechUp Showcase and Grant Pitch",
@@ -27,11 +48,7 @@ const gridItems = [
     textColor: "text-[#a8248c]",
     dateColor: "text-[#a8248c]",
     slug: "annual-techup-showcase-2026",
-  },
-  {
-    id: 4,
-    type: "image",
-    image: "/events/img4.jpg",
+    image: "/events/img3.jpg", // now lives with its own card
   },
   {
     id: 5,
@@ -42,6 +59,7 @@ const gridItems = [
     textColor: "text-white",
     dateColor: "text-white/80",
     slug: "mentorship-drive-2026",
+    image: "/events/img4.jpg",
   },
   {
     id: 6,
@@ -81,40 +99,80 @@ const gridItems = [
   },
 ];
 
+type FilterType = "all" | "event" | "article";
+
 export default function NewsGrid() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+
+  const filteredItems = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    return gridItems.filter((item) => {
+      if (activeFilter !== "all" && item.type !== activeFilter) return false;
+      if (query === "") return true;
+      const haystack =
+        `${item.title} ${"author" in item ? item.author : ""}`.toLowerCase();
+      return haystack.includes(query);
+    });
+  }, [searchQuery, activeFilter]);
+
+  const filterButtons: { label: string; value: FilterType }[] = [
+    { label: "ALL", value: "all" },
+    { label: "EVENTS", value: "event" },
+    { label: "ARTICLES", value: "article" },
+  ];
+
   return (
     <section className="w-full bg-white pb-32">
-      <div className="mx-auto max-w-[1440px] px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Search & Filter Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 border-b border-gray-200 pb-8">
-          <div className="flex w-full md:w-auto flex-1 max-w-md">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex w-full md:w-auto flex-1 max-w-md"
+          >
             <input
               type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search events and articles..."
-              className="w-full border border-gray-300 border-r-0 px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#a8248c]"
+              className="w-full border border-gray-300 border-r-0 px-4 py-3 text-sm text-[#000000] focus:outline-none focus:ring-1 focus:ring-[#a8248c]"
             />
-            <button className="bg-[#a8248c] text-white px-6 font-medium text-sm hover:bg-purple-900 transition-colors">
+            <button
+              type="submit"
+              className="bg-[#a8248c] text-white px-6 font-medium text-sm hover:bg-[#8D288D]-900 transition-colors"
+            >
               Search
             </button>
-          </div>
+          </form>
 
           <div className="flex gap-2">
-            <button className="bg-[#a8248c] text-white text-[10px] font-bold uppercase tracking-widest px-4 py-2">
-              ALL
-            </button>
-            <button className="bg-[#FCF3FC] text-[#a8248c] text-[10px] font-bold uppercase tracking-widest px-4 py-2 hover:bg-[#a8248c] hover:text-white transition-colors">
-              EVENTS
-            </button>
-            <button className="bg-[#FCF3FC] text-[#a8248c] text-[10px] font-bold uppercase tracking-widest px-4 py-2 hover:bg-[#a8248c] hover:text-white transition-colors">
-              ARTICLES
-            </button>
+            {filterButtons.map((btn) => (
+              <button
+                key={btn.value}
+                onClick={() => setActiveFilter(btn.value)}
+                className={`text-[10px] font-bold uppercase tracking-widest px-4 py-2 transition-colors ${
+                  activeFilter === btn.value
+                    ? "bg-[#a8248c] text-white"
+                    : "bg-[#FCF3FC] text-[#a8248c] hover:bg-[#a8248c] hover:text-white"
+                }`}
+              >
+                {btn.label}
+              </button>
+            ))}
           </div>
         </div>
 
+        {filteredItems.length === 0 && (
+          <p className="text-sm text-gray-500 mb-8">
+            No results found for &quot;{searchQuery}&quot;.
+          </p>
+        )}
+
         {/* Dynamic Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {gridItems.map((item) => {
-            // 1. Render Article Card (Now a Link!)
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {filteredItems.map((item) => {
             if (item.type === "article") {
               return (
                 <Link
@@ -124,8 +182,8 @@ export default function NewsGrid() {
                 >
                   <div className="relative w-full aspect-[4/3] bg-gray-200 overflow-hidden">
                     <Image
-                      src={item.image!}
-                      alt={item.title!}
+                      src={item.image}
+                      alt={item.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -160,13 +218,23 @@ export default function NewsGrid() {
               );
             }
 
-            // 2. Render Event Card (Now a Link!)
-            if (item.type === "event") {
-              return (
-                <Link
-                  href={`/events/${item.slug}`}
-                  key={item.id}
-                  className={`flex flex-col p-8 ${item.bgColor} h-full justify-between hover:-translate-y-1 transition-transform duration-300`}
+            // Event: image + info panel are ONE card, spanning 2 grid columns
+            return (
+              <Link
+                href={`/events/${item.slug}`}
+                key={item.id}
+                className="md:col-span-2 flex flex-col sm:flex-row h-full group hover:-translate-y-1 transition-transform duration-300"
+              >
+                <div className="relative w-full sm:w-1/2 aspect-[4/3] sm:aspect-auto bg-gray-200 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div
+                  className={`flex flex-col p-8 w-full sm:w-1/2 ${item.bgColor} justify-between`}
                 >
                   <div>
                     <span
@@ -185,26 +253,9 @@ export default function NewsGrid() {
                   >
                     <Calendar className="w-4 h-4 mr-2" /> {item.date}
                   </div>
-                </Link>
-              );
-            }
-
-            // 3. Render Photo-only Card (Not clickable)
-            if (item.type === "image") {
-              return (
-                <div
-                  key={item.id}
-                  className="relative w-full h-full min-h-[300px] bg-gray-200"
-                >
-                  <Image
-                    src={item.image!}
-                    alt="Gallery image"
-                    fill
-                    className="object-cover"
-                  />
                 </div>
-              );
-            }
+              </Link>
+            );
           })}
         </div>
       </div>

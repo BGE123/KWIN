@@ -5,21 +5,21 @@ const options = [
   {
     id: 1,
     title: "Donate.",
-    description: "Fund a girl's education, mentorship, or grant.",
+    description: "Fund a girl's education, mentorship, or grant",
     cta: "SPONSOR NOW",
     image: "/landing-page/inv1.jpg",
   },
   {
     id: 2,
     title: "Volunteer.",
-    description: "Share your expertise in mentorship, tech, or business.",
+    description: "Share your expertise in mentorship, tech, or business",
     cta: "REGISTER NOW",
     image: "/landing-page/inv2.jpg",
   },
   {
     id: 3,
     title: "Partner.",
-    description: "Bring your organization's resources to scale our reach.",
+    description: "Bring your organisation's resources to scale our reach",
     cta: "PARTNER WITH US",
     image: "/landing-page/inv3.jpg",
   },
@@ -28,9 +28,8 @@ const options = [
 export default function GetInvolved() {
   return (
     <section className="w-full bg-[#200920] py-24">
-      <div className="mx-auto max-w-[1440px] px-6">
-        {/* Header Section */}
-        <div className="flex flex-col items-center text-center mb-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center text-center mb-16 ">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
             Get involved.
           </h2>
@@ -51,27 +50,34 @@ export default function GetInvolved() {
                 src={option.image}
                 alt={option.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105 z-0"
               />
 
-              {/* Gradient Overlays (Top for title, Bottom for text) */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90 z-10 no-invert" />
+              {/* FIX 1: The Dark Gradient Overlay 
+                  (Dark at the top for the title, dark at the bottom for the box, clear in the middle) */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-black/70 z-10 pointer-events-none" />
 
-              {/* Card Content */}
-              <div className="absolute inset-0 z-20 flex flex-col justify-between p-8">
-                {/* Top Title */}
-                <h3 className="text-3xl font-serif font-bold text-white no-invert">
+              {/* Top Title */}
+              <div className="absolute top-0 left-0 w-full p-8 lg:p-10 z-20">
+                <h3 className="text-4xl font-serif font-bold text-white drop-shadow-md">
                   {option.title}
                 </h3>
+              </div>
 
-                {/* Bottom Content */}
-                <div>
-                  <p className="text-sm text-gray-200 mb-6 leading-relaxed opacity-90 no-invert">
+              {/* Bottom Box */}
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                {/* FIX 2: Dark Smoked Glass 
+                    (Changed from bg-white/20 to bg-black/40 so the white text pops) */}
+                <div className="backdrop-blur-md bg-[#FFFFFF3D] border border-white/10 p-6 flex flex-col gap-6 transition-colors duration-300 group-hover:bg-black/60">
+                  {/* Description */}
+                  <p className="text-sm text-white leading-relaxed font-medium">
                     {option.description}
                   </p>
 
-                  <div className="flex items-center text-xs font-bold uppercase tracking-widest text-white group-hover:text-gray-300 transition-colors no-invert">
-                    {option.cta} <ArrowRight className="ml-2 h-4 w-4" />
+                  {/* CTA with Arrow */}
+                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-white transition-transform">
+                    <span>{option.cta}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
               </div>

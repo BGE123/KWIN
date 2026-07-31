@@ -57,7 +57,7 @@ export function Footer() {
   return (
     <footer id="contact" className="relative bg-[#2D0A2E] text-white no-invert">
       {/* Stay Connected banner - overlaps top edge */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative -translate-y-1/2 bg-[#9B2185] px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">
@@ -88,7 +88,7 @@ export function Footer() {
       </div>
 
       {/* Main footer content */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left column */}
           <div>

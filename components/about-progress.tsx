@@ -33,7 +33,7 @@ export default function AboutProgress() {
         {/* Stats Table */}
         <div className="w-full flex flex-col">
           {/* Table Header */}
-          <div className="flex border-b border-gray-300 pb-4 mb-6">
+          <div className="flex border-b-2 border-[#6C6C6C] pb-4 mb-3">
             <div className="w-1/3 text-xs font-bold text-[#1a1543] capitalize">
               Stat
             </div>
@@ -43,9 +43,12 @@ export default function AboutProgress() {
           </div>
 
           {/* Table Rows */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-3 ">
             {stats.map((stat, index) => (
-              <div key={index} className="flex items-start">
+              <div
+                key={index}
+                className="flex items-start border-b-[0.5] border-[#CCCCCC80] pb-3"
+              >
                 <div className="w-1/3 text-sm font-medium text-[#1a1543]">
                   {stat.value}
                 </div>

@@ -10,7 +10,7 @@ const principles = [
   {
     title: "Vision",
     description:
-      "Develop 100,000 women who are educated and financially independent by 2030.",
+      "Develop 500,000 women who are educated and financially independent by 2033.",
   },
   {
     title: "Mission",
@@ -23,7 +23,7 @@ const coreValues = [
   {
     title: "Godliness",
     description:
-      "Faith-based integrity guides how we lead, mentor, and hold ourselves accountable to the girls we serve.",
+      "Faith-rooted integrity guides how we lead, mentor, and hold ourselves accountable to the girls we serve.",
     icon: BookOpen,
   },
   {
@@ -50,7 +50,7 @@ export default function AboutValues() {
   return (
     <section className="w-full bg-white flex flex-col">
       {/* OUR STORY */}
-      <div className="mx-auto max-w-[1440px] px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="mx-auto max-w-7xl px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <p className="text-xs font-bold tracking-widest text-[#8D288D] mb-3">
             OUR STORY
@@ -88,17 +88,21 @@ export default function AboutValues() {
       </div>
 
       {/* Aim, Vision, Mission */}
-      <div className="mx-auto max-w-[1440px] px-6 pb-20 w-full">
+      <div className="mx-auto max-w-7xl px-6 pb-20 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {principles.map((item, index) => (
             <div
               key={index}
-              className="border border-[#8D288D]/20 p-8 flex flex-col"
+              className={`p-8 flex flex-col ${
+                index === 0
+                  ? "bg-[#FCF3FC]" // Aim Card: Light purple fill, no border
+                  : "bg-white border border-[#92287A]/40" // Vision & Mission Cards: White fill with purple border
+              }`}
             >
-              <h3 className="text-2xl font-serif font-bold text-[#1a1543] mb-4">
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#1a1543] mb-4">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed font-normal">
                 {item.description}
               </p>
             </div>
@@ -107,24 +111,32 @@ export default function AboutValues() {
       </div>
 
       {/* Core Values (Dark Section) */}
-      <div className="bg-[#200920] w-full py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="flex flex-col">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-10">
+      <div className="bg-[#200920] w-full py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+            {/* Left: Text & List */}
+            <div className="lg:col-span-7 flex flex-col">
+              <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-bold text-white mb-10 lg:mb-12 leading-tight">
                 Core values
               </h2>
-              <div className="bg-white/5 p-8 md:p-10 rounded-2xl flex flex-col gap-8">
+
+              <div className="flex flex-col">
                 {coreValues.map((value, index) => (
-                  <div key={index} className="flex gap-6 items-start">
-                    <div className="flex-shrink-0 mt-1 p-2 bg-white/10 rounded-lg text-white">
-                      <value.icon className="w-5 h-5" strokeWidth={2} />
+                  <div
+                    key={index}
+                    // Richer purple-tinted gradient to match Figma perfectly
+                    className="flex gap-6 lg:gap-8 items-start p-6 lg:p-8 bg-gradient-to-r from-[#3c143c] to-transparent border-b border-black"
+                  >
+                    {/* Icon Box: Sharp square with a dark background to contrast the gradient */}
+                    <div className="flex-shrink-0 w-14 h-14 bg-[#170617] flex items-center justify-center text-white">
+                      <value.icon className="w-6 h-6" strokeWidth={2} />
                     </div>
-                    <div>
-                      <h4 className="text-base font-bold text-white mb-2">
+
+                    <div className="flex flex-col pt-1">
+                      <h4 className="text-lg lg:text-xl font-bold text-white mb-2">
                         {value.title}
                       </h4>
-                      <p className="text-sm text-gray-300 leading-relaxed">
+                      <p className="text-sm lg:text-base text-gray-300 leading-relaxed max-w-md">
                         {value.description}
                       </p>
                     </div>
@@ -132,15 +144,15 @@ export default function AboutValues() {
                 ))}
               </div>
             </div>
-            <div className="relative w-full aspect-[4/5] max-w-md mx-auto lg:ml-auto rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gray-200">
-                <Image
-                  src="/aboutimg3.jpg"
-                  alt="Girl sitting at desk"
-                  fill
-                  className="object-cover"
-                />
-              </div>
+
+            {/* Right: Sharp Edged Image */}
+            <div className="lg:col-span-5 relative w-full aspect-square md:aspect-[3/4] lg:h-[700px] mt-8 lg:mt-0">
+              <Image
+                src="/aboutimg3.jpg"
+                alt="Student in classroom"
+                fill
+                className="object-cover object-center"
+              />
             </div>
           </div>
         </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -16,11 +19,51 @@ const amounts = [
   "₦100,000",
 ];
 
+const impactRows = [
+  {
+    amount: "₦1,000",
+    provides: "One week of mentorship for a girl in our programme",
+  },
+  {
+    amount: "₦2,000",
+    provides: "A full TechUp skills training module for one participant",
+  },
+  {
+    amount: "₦5,000",
+    provides: "A partial grant toward a beneficiary's small business launch",
+  },
+  {
+    amount: "₦8,000",
+    provides: "A partial grant toward a beneficiary's small business launch",
+  },
+];
+
 export default function DonateHeroForm() {
+  const [selectedAmount, setSelectedAmount] = useState("₦5,000");
+  const [customAmount, setCustomAmount] = useState("");
+  const [isMonthly, setIsMonthly] = useState(false);
+
+  const handlePresetClick = (amount: string) => {
+    setSelectedAmount(amount);
+    setCustomAmount("");
+  };
+
+  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^0-9]/g, "");
+    setCustomAmount(value);
+    if (value) {
+      setSelectedAmount(`₦${Number(value).toLocaleString()}`);
+    }
+  };
+
+  const displayAmount = customAmount
+    ? `₦${Number(customAmount).toLocaleString()}`
+    : selectedAmount;
+
   return (
-    <section className="w-full bg-[#FCFAFF] pt-32 pb-24">
+    <section className="w-full bg-[#FCFAFF] pt-32">
       {/* 1. Hero Section */}
-      <div className="mx-auto max-w-[1440px] px-6 mb-32">
+      <div className="mx-auto max-w-7xl px-6 mb-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
           <div className="hidden lg:block w-1/4 h-[300px] relative bg-gray-200">
             <Image
@@ -46,7 +89,7 @@ export default function DonateHeroForm() {
 
           <div className="hidden lg:block w-1/4 h-[300px] relative bg-gray-200">
             <Image
-              src="/donate/img2.jpg"
+              src="/donate/img8.jpg"
               alt="Student smiling"
               fill
               className="object-cover"
@@ -56,84 +99,137 @@ export default function DonateHeroForm() {
       </div>
 
       {/* 2. Form & Impact Section */}
-      <div className="mx-auto max-w-[1440px] px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left: Text & Table */}
-          <div className="flex flex-col">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4">
-              DONATE
-            </span>
-            <h2 className="text-4xl font-serif font-bold text-[#1a1543] mb-6 leading-tight">
-              Fund a girl's education, mentorship, or grant
-            </h2>
-            <p className="text-sm text-gray-600 mb-10 leading-relaxed">
-              A one-time or monthly gift goes straight into training,
-              mentorship, and grants. See exactly what your amount provides
-              before you give.
-            </p>
+      <section className="w-full flex justify-center py-16 md:py-24 bg-[#FCF3FC]">
+        <div className="w-full flex flex-col max-w-7xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            {/* Left: Text & Table */}
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4">
+                DONATE
+              </span>
+              <h2 className="text-4xl font-serif font-bold text-[#1a1543] mb-6 leading-tight">
+                Fund a girl's education, mentorship, or grant
+              </h2>
+              <p className="text-sm text-gray-600 mb-10 leading-relaxed">
+                A one-time or monthly gift goes straight into training,
+                mentorship, and grants. See exactly what your amount provides
+                before you give.
+              </p>
 
-            {/* Impact Table */}
-            <div className="w-full border-t border-gray-200">
-              <div className="flex border-b border-gray-200 py-4 font-bold text-xs text-[#1a1543]">
-                <div className="w-1/3">Amount</div>
-                <div className="w-2/3">What it provides</div>
-              </div>
-              <div className="flex border-b border-gray-200 py-4 text-sm text-gray-600 items-start">
-                <div className="w-1/3 font-bold text-[#a8248c]">₦5,000</div>
-                <div className="w-2/3">
-                  One week of mentorship for a girl in our programme
+              {/* Impact Table */}
+              <div className="w-full border-t border-gray-200 bg-[#FFFFFF]">
+                <div className="hidden sm:flex border-b border-gray-200 py-4 font-bold text-xs text-[#1a1543]">
+                  <div className="w-1/3">Amount</div>
+                  <div className="w-2/3">What it provides</div>
                 </div>
-              </div>
-              <div className="flex border-b border-gray-200 py-4 text-sm text-gray-600 items-start">
-                <div className="w-1/3 font-bold text-[#a8248c]">₦50,000</div>
-                <div className="w-2/3">
-                  A partial grant toward a beneficiary's small business launch
-                </div>
+                {impactRows.map((row, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col sm:flex-row border-b border-gray-200 py-4 text-sm text-gray-600 items-start gap-1 sm:gap-0"
+                  >
+                    <div className="w-full sm:w-1/3 font-bold text-[#a8248c]">
+                      {row.amount}
+                    </div>
+                    <div className="w-full sm:w-2/3">{row.provides}</div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
 
-          {/* Right: Donation Widget */}
-          <div className="bg-white p-8 md:p-10 shadow-[0_20px_50px_rgb(0,0,0,0.05)] rounded-sm border border-gray-100 flex flex-col items-center">
-            {/* Toggle */}
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-xs font-bold text-gray-400">One-Time</span>
-              <div className="w-12 h-6 bg-gray-200 rounded-full relative cursor-pointer">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow-sm"></div>
-              </div>
-              <span className="text-xs font-bold text-[#1a1543]">Monthly</span>
-            </div>
-
-            <h3 className="text-lg font-bold text-[#1a1543] mb-6">
-              Select an amount
-            </h3>
-
-            {/* Amount Grid */}
-            <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 w-full mb-6">
-              {amounts.map((amount, idx) => (
-                <button
-                  key={idx}
-                  className={`py-3 text-xs font-bold rounded-sm border transition-colors ${idx === 1 ? "bg-[#92287A] text-white border-[#92287A]" : "bg-[#FCF3FC] text-[#92287A] border-transparent hover:border-[#92287A]/30"}`}
+            {/* Right: ONE unified card */}
+            <div className="w-full bg-white shadow-[0_20px_50px_rgb(0,0,0,0.06)] overflow-hidden">
+              {/* Toggle bar */}
+              <div className="flex items-center gap-3 px-8 md:px-10 py-6 border-b border-gray-100 max-w-1xl">
+                <span
+                  className={`text-sm font-bold cursor-pointer ${!isMonthly ? "text-[#1a1543]" : "text-gray-400"}`}
+                  onClick={() => setIsMonthly(false)}
                 >
-                  {amount}
-                </button>
-              ))}
-            </div>
+                  One-Time
+                </span>
+                <div
+                  className="w-12 h-6 bg-gray-200 rounded-full relative cursor-pointer"
+                  onClick={() => setIsMonthly((prev) => !prev)}
+                >
+                  <div
+                    className={`w-5 h-5 bg-white border border-gray-300 rounded-full absolute top-0.5 shadow-sm transition-all ${isMonthly ? "left-[26px]" : "left-0.5"}`}
+                  ></div>
+                </div>
+                <span
+                  className={`text-sm font-bold cursor-pointer ${isMonthly ? "text-[#1a1543]" : "text-gray-400"}`}
+                  onClick={() => setIsMonthly(true)}
+                >
+                  Monthly
+                </span>
+              </div>
 
-            {/* Custom Input & Button */}
-            <div className="w-full flex flex-col gap-4 mt-2">
-              <input
-                type="text"
-                placeholder="Enter custom amount"
-                className="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] text-center bg-[#FAFAFA]"
-              />
-              <Button className="w-full bg-[#00AEEF] hover:bg-blue-600 text-white font-bold text-xs uppercase tracking-widest py-6 rounded-full transition-colors">
-                DONATE ₦5,000
-              </Button>
+              {/* Amount selection */}
+              <div className="p-8 md:p-10 flex flex-col items-center">
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-[#1a1543] mb-8">
+                  Select an amount
+                </h3>
+
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 w-full mb-6">
+                  {amounts.map((amount, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => handlePresetClick(amount)}
+                      className={`py-2 px-0.5 text-sm font-semibold rounded-lg transition-colors ${
+                        !customAmount && selectedAmount === amount
+                          ? "bg-[#92287A] text-white"
+                          : "bg-[#F5E7F3] text-[#92287A] hover:bg-[#92287A]/10"
+                      }`}
+                    >
+                      {amount}
+                    </button>
+                  ))}
+                </div>
+
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={customAmount}
+                  onChange={handleCustomChange}
+                  placeholder="Enter custom amount"
+                  className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#a8248c] text-center bg-white mb-6"
+                />
+
+                <Button
+                  type="button"
+                  className="w-auto min-w-[220px] bg-[#92287A] hover:bg-[#7a2067] text-white font-bold text-xs uppercase tracking-widest py-6 px-10 rounded-full transition-colors"
+                >
+                  DONATE {displayAmount}
+                  {isMonthly ? "/MONTH" : ""}
+                </Button>
+
+                <div className="flex items-center justify-center gap-6 mt-6">
+                  <Image
+                    src="/donate/logo1.png"
+                    alt="Secure"
+                    width={100}
+                    height={40}
+                    className="object-contain h-5 w-auto"
+                  />
+                  <Image
+                    src="/donate/logo2.png"
+                    alt="PCI-DSS Compliant"
+                    width={100}
+                    height={40}
+                    className="object-contain h-5 w-auto"
+                  />
+                  <Image
+                    src="/donate/logo3.png"
+                    alt="Paystack"
+                    width={100}
+                    height={40}
+                    className="object-contain h-5 w-auto"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
   );
 }

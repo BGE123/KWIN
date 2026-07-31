@@ -98,7 +98,7 @@ export default function DonateWaysToGive() {
               <div className="col-span-2 flex flex-col items-center mt-6">
                 <Button
                   type="button"
-                  className="bg-[#92287A] hover:bg-purple-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors"
+                  className="bg-[#92287A] hover:bg-[#8D288D]-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors"
                 >
                   REGISTER NOW
                 </Button>
@@ -208,7 +208,7 @@ export default function DonateWaysToGive() {
               <div className="col-span-2 flex flex-col items-center mt-6">
                 <Button
                   type="button"
-                  className="bg-[#92287A] hover:bg-purple-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-5 transition-colors"
+                  className="bg-[#92287A] hover:bg-[#8D288D]-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-5 transition-colors"
                 >
                   SUBMIT
                 </Button>
@@ -220,7 +220,7 @@ export default function DonateWaysToGive() {
 
       {/* 1. Volunteer Section */}
       <section className="w-full bg-[#92287A] py-24">
-        <div className="mx-auto max-w-[1440px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="grid grid-cols-2 gap-4 h-[400px]">
             <div className="relative w-full h-full bg-gray-200 row-span-2">
               <Image
@@ -260,7 +260,6 @@ export default function DonateWaysToGive() {
               or bring your business or tech background into a workshop. We
               match volunteers to programmes based on what you're good at.
             </p>
-            {/* Added onClick handler to open Volunteer Modal */}
             <Button
               onClick={() => setIsVolunteerModalOpen(true)}
               className="bg-white text-[#92287A] hover:bg-gray-100 rounded-full font-bold text-xs uppercase tracking-widest px-8 py-6 transition-colors"
@@ -271,80 +270,74 @@ export default function DonateWaysToGive() {
         </div>
       </section>
 
-      {/* 2. Partner Section */}
+      {/* 2. Partner Section — matched to Figma spec */}
       <section className="w-full bg-white py-24">
-        <div className="mx-auto max-w-[1440px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="flex flex-col items-start lg:pr-10">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4 block">
-              PARTNERSHIPS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1a1543] mb-6 leading-tight">
-              Partner with us <br /> at scale
-            </h2>
-            <p className="text-sm text-gray-600 mb-10 leading-relaxed max-w-md">
-              KWIN works with companies, foundations, and institutions that want
-              to fund, staff, or scale a programme directly. Join 45+ partners
-              already building alongside us.
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-16">
-              {/* Added onClick handler to open Partner Modal */}
-              <Button
-                onClick={() => setIsPartnerModalOpen(true)}
-                className="bg-[#92287A] hover:bg-purple-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors"
-              >
-                BECOME A PARTNER
-              </Button>
-              <Button className="bg-transparent border border-gray-200 text-[#1a1543] hover:border-[#92287A] hover:text-[#92287A] rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors">
-                DOWNLOAD BROCHURE
-              </Button>
+        <div>
+          <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col items-start lg:pr-10">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4 block">
+                PARTNERSHIPS
+              </span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#1a1543] mb-6 leading-tight">
+                Partner with us <br /> at scale
+              </h2>
+              <p className="text-sm text-gray-600 mb-10 leading-relaxed max-w-md">
+                KWIN works with companies, foundations, and institutions that
+                want to fund, staff, or scale a programme directly. Join 45+
+                partners already building alongside us.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-16">
+                <Button
+                  onClick={() => setIsPartnerModalOpen(true)}
+                  className="bg-[#92287A] hover:bg-[#8D288D]-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors"
+                >
+                  BECOME A PARTNER
+                </Button>
+                <Button className="bg-transparent border border-gray-200 text-[#1a1543] hover:border-[#92287A] hover:text-[#92287A] rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors">
+                  DOWNLOAD BROCHURE
+                </Button>
+              </div>
+              {/* Stat cards — separate bordered boxes with gaps, first one tinted pink, matching Figma */}
             </div>
-
-            <div className="grid grid-cols-3 w-full border-t border-l border-gray-100">
-              <div className="p-6 border-b border-r border-gray-100 flex flex-col gap-2">
-                <span className="text-2xl font-serif font-bold text-[#1a1543]">
-                  45+
-                </span>
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                  Partners
-                </span>
+            {/* Two side-by-side images, equal height, no stagger — matches Figma's Frame 14 */}
+            <div className="grid grid-cols-2 gap-[44px] h-[400px] md:h-[547px]">
+              <div className="relative w-full h-full bg-gray-200">
+                <Image
+                  src="/donate/img6.jpg"
+                  alt="Group outdoors"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <div className="p-6 border-b border-r border-gray-100 flex flex-col gap-2">
-                <span className="text-2xl font-serif font-bold text-[#1a1543]">
-                  12,000+
-                </span>
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                  Mentors
-                </span>
-              </div>
-              <div className="p-6 border-b border-r border-gray-100 flex flex-col gap-2">
-                <span className="text-2xl font-serif font-bold text-[#1a1543]">
-                  ₦450M
-                </span>
-                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
-                  Raised
-                </span>
+              <div className="relative w-full h-full bg-gray-300">
+                <Image
+                  src="/donate/img7.jpg"
+                  alt="Girls hugging"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-4 h-[500px]">
-            <div className="relative w-full h-full bg-gray-200">
-              <Image
-                src="/donate/img6.jpg"
-                alt="Group outdoors"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="relative w-full h-full bg-gray-300 translate-y-12">
-              <Image
-                src="/donate/img7.jpg"
-                alt="Girls hugging"
-                fill
-                className="object-cover"
-              />
-            </div>
+        </div>
+        <div className="grid grid-cols-3 gap-4 mx-auto max-w-7xl mt-16">
+          <div className="p-6 bg-[#FCF3FC] flex flex-col gap-2">
+            <span className="text-4xl font-serif font-bold text-[#1a1543]">
+              45+
+            </span>
+            <span className="text-xs text-gray-500 font-medium">Partners</span>
+          </div>
+          <div className="p-6 border border-[#8D288D] flex flex-col gap-2">
+            <span className="text-4xl font-serif font-bold text-[#1a1543]">
+              12,000+
+            </span>
+            <span className="text-xs text-gray-500 font-medium">Mentors</span>
+          </div>
+          <div className="p-6 border border-[#8D288D] flex flex-col gap-2">
+            <span className="text-4xl font-serif font-bold text-[#1a1543]">
+              ₦450M
+            </span>
+            <span className="text-xs text-gray-500 font-medium">Raised</span>
           </div>
         </div>
       </section>

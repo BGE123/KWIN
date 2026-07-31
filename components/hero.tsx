@@ -24,7 +24,7 @@ export function Hero() {
       />
 
       {/* 3. CONTENT CONTAINER */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 max-w-[1440px] mx-auto w-full">
+      <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 max-w-7xl mx-auto w-full">
         <div className="flex-1 flex flex-col justify-center mb-12">
           <div className="max-w-2xl">
             <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight text-balance font-serif">
@@ -40,7 +40,7 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link href="/programmes" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white rounded-full px-8 py-6 text-base font-semibold">
+                <Button className="w-full sm:w-auto bg-[#8D288D] hover:bg-[#8D288D] text-white rounded-full px-8 py-6 text-base font-semibold">
                   APPLY FOR PROGRAMME
                 </Button>
               </Link>

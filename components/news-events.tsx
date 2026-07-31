@@ -31,7 +31,7 @@ const newsItems = [
 export default function NewsEvents() {
   return (
     <section className="w-full bg-white py-20">
-      <div className="mx-auto max-w-[1440px] px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-4">
@@ -85,7 +85,7 @@ export default function NewsEvents() {
 
         {/* View All Button */}
         <div className="flex justify-center mt-12">
-          <button className="inline-flex items-center justify-center rounded-full bg-purple-600 px-8 py-3.5 text-sm font-bold text-white hover:bg-purple-700 transition-all">
+          <button className="inline-flex items-center justify-center rounded-full bg-[#8D288D] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#8D288D]-700 transition-all">
             View all news <ArrowRight className="ml-2 h-4 w-4" />
           </button>
         </div>

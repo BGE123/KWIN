@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 
 export default function ContactForm() {
   return (
-    <section className="w-full bg-[#FAFAFA] py-24 ">
-      <div className="mx-auto max-w-[1440px] px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 pb-20">
+    <section className="w-full bg-[#FAFAFA] py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column: Form */}
           <div className="flex flex-col bg-white p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-sm border border-gray-100">
             <h2 className="text-3xl font-serif font-bold text-[#1a1543] mb-10">
@@ -22,7 +22,7 @@ export default function ContactForm() {
                   <input
                     type="text"
                     placeholder="e.g. Samuel Prince"
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                    className="border border-gray-200 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#a8248c] transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -32,7 +32,7 @@ export default function ContactForm() {
                   <input
                     type="email"
                     placeholder="e.g. you@email.com"
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                    className="border border-gray-200 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#a8248c] transition-colors"
                   />
                 </div>
               </div>
@@ -45,18 +45,21 @@ export default function ContactForm() {
                   <input
                     type="tel"
                     placeholder="+234"
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                    className="border border-gray-200 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#a8248c] transition-colors"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
                     Country
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Nigeria"
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
-                  />
+                  <select className="border border-gray-200 px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#a8248c] bg-white transition-colors">
+                    <option>Nigeria</option>
+                    <option>Ghana</option>
+                    <option>Kenya</option>
+                    <option>United Kingdom</option>
+                    <option>United States</option>
+                    <option>Other</option>
+                  </select>
                 </div>
               </div>
 
@@ -64,7 +67,7 @@ export default function ContactForm() {
                 <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
                   Subject
                 </label>
-                <select className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] bg-white transition-colors">
+                <select className="border border-gray-200 px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#a8248c] bg-white transition-colors">
                   <option>I want to donate</option>
                   <option>I want to volunteer</option>
                   <option>Partnership inquiry</option>
@@ -79,12 +82,12 @@ export default function ContactForm() {
                 <textarea
                   rows={5}
                   placeholder="Tell us what you'd like to in details"
-                  className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] resize-none transition-colors"
+                  className="border border-gray-200 px-4 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-[#a8248c] resize-none transition-colors"
                 ></textarea>
               </div>
 
               <div className="flex justify-end mt-4">
-                <Button className="bg-[#a8248c] hover:bg-purple-900 text-white rounded-full px-10 py-6 text-xs font-bold uppercase tracking-widest transition-colors w-full md:w-auto">
+                <Button className="bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full px-10 py-6 text-xs font-bold uppercase tracking-widest transition-colors w-full md:w-auto">
                   SEND MESSAGE
                 </Button>
               </div>
@@ -97,44 +100,43 @@ export default function ContactForm() {
           </div>
 
           {/* Right Column: Contact Info & Map */}
-          <div className="flex flex-col gap-8">
-            {/* Info Cards */}
-            <div className="flex flex-col sm:flex-row gap-6">
-              <div className="flex items-start gap-4 flex-1 bg-white p-6 shadow-sm border border-gray-100 rounded-sm">
-                <div className="text-[#a8248c]">
-                  <Mail className="w-5 h-5" strokeWidth={2} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 block">
-                    Email
-                  </span>
-                  <a
-                    href="mailto:kindlewomeninitiative@gmail.com"
-                    className="text-sm font-bold text-[#1a1543] hover:text-[#a8248c] transition-colors break-all"
-                  >
-                    kindlewomeninitiative@gmail.com
-                  </a>
-                </div>
+          <div className="flex flex-col gap-6">
+            <div className="flex items-start gap-4 bg-gray-50 p-6 rounded-sm">
+              <div className="text-[#a8248c] mt-0.5">
+                <Mail className="w-5 h-5" strokeWidth={2} />
               </div>
-              <div className="flex items-start gap-4 flex-1 bg-white p-6 shadow-sm border border-gray-100 rounded-sm">
-                <div className="text-[#a8248c]">
-                  <MapPin className="w-5 h-5" strokeWidth={2} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 block">
-                    Address
-                  </span>
-                  <span className="text-sm font-bold text-[#1a1543]">
-                    Lagos State, Nigeria
-                  </span>
-                </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 block">
+                  Email
+                </span>
+
+                <a
+                  href="mailto:kindlewomeninitiative@gmail.com"
+                  className="text-sm font-bold text-[#1a1543] underline decoration-1 underline-offset-2 hover:text-[#a8248c] transition-colors break-all"
+                >
+                  kindlewomeninitiative@gmail.com
+                </a>
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="relative w-full h-full min-h-[300px] bg-gray-200 border border-gray-100 rounded-sm overflow-hidden">
+            <div className="flex items-start gap-4 bg-gray-50 p-6 rounded-sm">
+              <div className="text-[#a8248c] mt-0.5">
+                <MapPin className="w-5 h-5" strokeWidth={2} />
+              </div>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 block">
+                  Address
+                </span>
+                <span className="text-sm font-bold text-[#1a1543] underline decoration-1 underline-offset-2">
+                  Lagos State, Nigeria
+                </span>
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="relative w-full flex-1 min-h-[300px] bg-gray-200 border border-gray-100 rounded-sm overflow-hidden">
               <Image
-                src="/placeholder-map.jpg"
+                src="/contact/map.png"
                 alt="Map of Lagos"
                 fill
                 className="object-cover"

@@ -5,7 +5,7 @@ import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from "react-icons/fi";
 export default function NewsHero() {
   return (
     <section className="w-full bg-white pt-32 pb-16">
-      <div className="mx-auto max-w-[1440px] px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-16">
           {/* Left Side: Header Text */}
           <div className="w-full lg:w-1/2 flex flex-col items-start">

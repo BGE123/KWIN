@@ -10,7 +10,7 @@ export function Header() {
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white/40 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-      <div className="max-w-[1440px] mx-auto py-4 px-6">
+      <div className="max-w-7xl mx-auto py-4 px-6">
         <div className="flex justify-between items-center text-black">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-black text-[#1a1543] font-serif">
@@ -19,7 +19,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-bold font-sans text-gray-700">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium font-sans text-[#1A0E35]">
             <Link href="/" className="hover:text-[#a8248c] transition-colors">
               HOME
             </Link>
@@ -58,7 +58,7 @@ export function Header() {
           {/* Desktop Donate Button */}
           <div className="hidden md:block">
             <Link href="/donate">
-              <Button className="bg-[#a8248c] hover:bg-purple-900 text-white rounded-full px-6 py-5 text-xs font-bold transition-colors">
+              <Button className="bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full px-6 py-5 text-xs font-bold transition-colors">
                 DONATE NOW
               </Button>
             </Link>
@@ -136,7 +136,7 @@ export function Header() {
             onClick={() => setIsMenuOpen(false)}
             className="mt-4"
           >
-            <Button className="w-full bg-[#a8248c] hover:bg-purple-900 text-white rounded-full py-6 text-xs font-bold transition-colors">
+            <Button className="w-full bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full py-6 text-xs font-bold transition-colors">
               DONATE NOW
             </Button>
           </Link>

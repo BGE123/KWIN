@@ -89,7 +89,7 @@ const programmesData = [
 export default function ProgrammesGrid() {
   return (
     <section className="w-full bg-white pb-32">
-      <div className="mx-auto max-w-[1440px] px-6">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Grid Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {programmesData.map((prog) => (
@@ -116,11 +116,11 @@ export default function ProgrammesGrid() {
                 <h2 className="text-3xl font-serif font-bold text-[#1a1543] mb-4">
                   {prog.title}
                 </h2>
-                <p className="text-sm text-gray-600 leading-relaxed mb-8">
+                <p className="text-sm text-gray-600 leading-relaxed mb-4 border-b border-[#8D288D] pb-4">
                   {prog.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-4 border-b border-[#8D288D] pb-4">
                   {prog.tags.map((tag, index) => (
                     <span
                       key={index}
@@ -146,7 +146,7 @@ export default function ProgrammesGrid() {
                         : "/apply-programme"
                     }
                   >
-                    <Button className="bg-[#a8248c] hover:bg-purple-900 text-white rounded-full px-8 py-5 text-xs font-bold uppercase tracking-widest transition-colors">
+                    <Button className="bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full px-8 py-5 text-xs font-bold uppercase tracking-widest transition-colors">
                       {prog.buttonText}
                     </Button>
                   </Link>

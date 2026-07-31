@@ -349,7 +349,7 @@ export default function ApplyProgrammeHero() {
                     <Button
                       type="button"
                       onClick={nextStep}
-                      className="bg-[#92287A] hover:bg-purple-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-6 transition-colors"
+                      className="bg-[#92287A] hover:bg-[#8D288D]-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-6 transition-colors"
                     >
                       PROCEED
                     </Button>
@@ -361,7 +361,7 @@ export default function ApplyProgrammeHero() {
                           alert("Programme Application Submitted! (Demo)");
                           closeModal();
                         }}
-                        className="bg-[#92287A] hover:bg-purple-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-6 transition-colors"
+                        className="bg-[#92287A] hover:bg-[#8D288D]-900 text-white rounded-full font-bold text-[10px] uppercase tracking-widest px-10 py-6 transition-colors"
                       >
                         SUBMIT APPLICATION
                       </Button>

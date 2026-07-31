@@ -201,3 +201,10 @@ body.dark img,
 .dark img {
   filter: invert(1) hue-rotate(180deg) !important;
 }
+button,
+link,
+Link,
+a {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}

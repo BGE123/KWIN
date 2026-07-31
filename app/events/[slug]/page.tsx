@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       <Header />
 
       {/* PART 1: Article Header */}
-      <section className="mx-auto max-w-[1440px] px-6 pt-32 pb-10 w-full">
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-10 w-full">
         <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-6 block">
           EVENT
         </span>
@@ -78,7 +78,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* PART 2: Main Hero Image */}
-      <section className="mx-auto max-w-[1440px] px-6 mb-16 w-full">
+      <section className="mx-auto max-w-7xl px-6 mb-16 w-full">
         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-gray-200 overflow-hidden">
           <Image
             src="/events/img9.jpg"
@@ -91,7 +91,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* PART 3: Content & Sidebar Grid */}
-      <section className="mx-auto max-w-[1440px] px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 pb-24 w-full">
+      <section className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 pb-24 w-full">
         {/* Left Column: Article Body */}
         <div className="lg:col-span-8 flex flex-col gap-6 text-gray-600 leading-relaxed text-sm md:text-base">
           <p>
@@ -193,7 +193,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       {/* PART 4: Related Articles Grid */}
       <section className="w-full bg-[#FCFAFF] py-24 border-t border-gray-100">
-        <div className="mx-auto max-w-[1440px] px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-8 border-b border-gray-200 pb-3">
             HERE ARE SOME RELATED ARTICLES YOU MAY FIND INTERESTING
           </h3>
