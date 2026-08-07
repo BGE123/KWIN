@@ -2,11 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
+const navLinks = [
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "PROGRAMMES", href: "/programmes" },
+  { name: "EVENTS & NEWS", href: "/events" },
+  { name: "GALLERY", href: "/gallery" },
+  { name: "CONTACT", href: "/contact" },
+];
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white/40 backdrop-blur-lg border-b border-gray-200 shadow-sm">
@@ -20,45 +31,30 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium font-sans text-[#1A0E35]">
-            <Link href="/" className="hover:text-[#a8248c] transition-colors">
-              HOME
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-[#a8248c] transition-colors"
-            >
-              ABOUT
-            </Link>
-            <Link
-              href="/programmes"
-              className="hover:text-[#a8248c] transition-colors"
-            >
-              PROGRAMMES
-            </Link>
-            <Link
-              href="/events"
-              className="hover:text-[#a8248c] transition-colors"
-            >
-              EVENTS & NEWS
-            </Link>
-            <Link
-              href="/gallery"
-              className="hover:text-[#a8248c] transition-colors"
-            >
-              GALLERY
-            </Link>
-            <Link
-              href="/contact"
-              className="hover:text-[#a8248c] transition-colors"
-            >
-              CONTACT
-            </Link>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative transition-colors hover:text-[#a8248c] pb-1 ${
+                    isActive ? "text-[#a8248c] font-bold" : ""
+                  }`}
+                >
+                  {link.name}
+                  {/* Underline indicator for active page */}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#a8248c] rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop Donate Button */}
           <div className="hidden md:block">
             <Link href="/donate">
-              <Button className="bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full px-6 py-5 text-xs font-bold transition-colors">
+              <Button className="bg-[#a8248c] hover:bg-[#8D288D] text-white rounded-full px-6 py-5 text-xs font-bold transition-colors">
                 DONATE NOW
               </Button>
             </Link>
@@ -88,55 +84,30 @@ export function Header() {
         }`}
       >
         <nav className="flex flex-col px-6 py-4 gap-2">
-          <Link
-            href="/"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            HOME
-          </Link>
-          <Link
-            href="/about"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            ABOUT
-          </Link>
-          <Link
-            href="/programmes"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            PROGRAMMES
-          </Link>
-          <Link
-            href="/events"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            EVENTS & NEWS
-          </Link>
-          <Link
-            href="/gallery"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            GALLERY
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-sm font-bold text-gray-700 hover:text-[#a8248c] py-3 border-b border-black/5"
-          >
-            CONTACT
-          </Link>
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-sm font-bold py-3 border-b border-black/5 transition-colors ${
+                  isActive
+                    ? "text-[#a8248c] pl-2 border-l-4 border-l-[#a8248c]"
+                    : "text-gray-700 hover:text-[#a8248c]"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
 
           <Link
             href="/donate"
             onClick={() => setIsMenuOpen(false)}
             className="mt-4"
           >
-            <Button className="w-full bg-[#a8248c] hover:bg-[#8D288D]-900 text-white rounded-full py-6 text-xs font-bold transition-colors">
+            <Button className="w-full bg-[#a8248c] hover:bg-[#8D288D] text-white rounded-full py-6 text-xs font-bold transition-colors">
               DONATE NOW
             </Button>
           </Link>

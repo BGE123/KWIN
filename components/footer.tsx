@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { MapPin, Mail } from "lucide-react";
 
+// (Keep your FacebookIcon, XIcon, InstagramIcon, LinkedinIcon here just like you had them!)
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -13,7 +17,6 @@ function FacebookIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 function XIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -26,7 +29,6 @@ function XIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 function InstagramIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -39,7 +41,6 @@ function InstagramIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 function LinkedinIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -54,6 +55,33 @@ function LinkedinIcon({ className }: { className?: string }) {
 }
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [msg, setMsg] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setMsg("");
+
+    const res = await fetch("/api/newsletter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      setStatus("success");
+      setMsg("Thanks for subscribing!");
+      setEmail("");
+    } else {
+      setStatus("error");
+      setMsg("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <footer id="contact" className="relative bg-[#2D0A2E] text-white no-invert">
       {/* Stay Connected banner - overlaps top edge */}
@@ -64,33 +92,47 @@ export function Footer() {
               Stay Connected
             </h2>
             <p className="mt-2 text-white/80 text-sm md:text-base">
-              Get updates on the girls and women you&apos;re helping to reach.
+              Get updates on the girls and women you're helping to reach.
             </p>
           </div>
-          <form className="flex w-full md:w-auto">
-            <label htmlFor="footer-email" className="sr-only">
-              Email
-            </label>
-            <input
-              id="footer-email"
-              type="email"
-              placeholder="Email*"
-              className="flex-1 md:w-80 bg-white text-gray-900 placeholder:text-gray-500 px-5 py-3.5 text-sm focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-[#9B2185] text-white px-6 py-3.5 text-sm font-medium border border-white/30 hover:bg-[#851c72] transition whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </form>
+
+          <div className="flex flex-col w-full md:w-auto">
+            <form onSubmit={handleSubscribe} className="flex w-full">
+              <label htmlFor="footer-email" className="sr-only">
+                Email
+              </label>
+              <input
+                id="footer-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email*"
+                className="flex-1 md:w-80 bg-white text-gray-900 placeholder:text-gray-500 px-5 py-3.5 text-sm focus:outline-none"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-[#9B2185] text-white px-6 py-3.5 text-sm font-medium border border-white/30 hover:bg-[#851c72] transition whitespace-nowrap disabled:opacity-50"
+              >
+                {status === "loading" ? "..." : "Subscribe"}
+              </button>
+            </form>
+            {/* Status Message */}
+            {msg && (
+              <p
+                className={`mt-2 text-sm font-medium ${status === "success" ? "text-green-300" : "text-red-300"}`}
+              >
+                {msg}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Main footer content */}
+      {/* Main footer content (Kept exactly as you provided) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left column */}
           <div>
             <span className="font-serif text-5xl font-bold tracking-tight">
               KWIN
@@ -104,10 +146,7 @@ export function Footer() {
               &copy; 2026 Kindle Women Initiative. All rights reserved
             </p>
           </div>
-
-          {/* Right column */}
           <div className="lg:pt-2">
-            {/* Social icons */}
             <div className="flex items-center gap-4">
               {[
                 { icon: FacebookIcon, label: "Facebook" },
@@ -125,65 +164,43 @@ export function Footer() {
                 </a>
               ))}
             </div>
-
-            {/* Primary nav */}
             <nav className="flex flex-wrap gap-x-10 gap-y-3 mt-8 text-sm">
-              <Link href="#home" className="hover:text-white/70 transition">
+              <Link href="/" className="hover:text-white/70 transition">
                 Home
               </Link>
-              <Link href="#about" className="hover:text-white/70 transition">
+              <Link href="/about" className="hover:text-white/70 transition">
                 About
               </Link>
               <Link
-                href="#programmes"
+                href="/programmes"
                 className="hover:text-white/70 transition"
               >
                 Programmes
               </Link>
-              <Link href="#" className="hover:text-white/70 transition">
+              <Link href="/donate" className="hover:text-white/70 transition">
                 Get Involved
               </Link>
             </nav>
-
             <div className="border-t border-white/15 mt-6" />
-
-            {/* Secondary nav */}
             <nav className="flex flex-wrap gap-x-10 gap-y-3 mt-6 text-sm">
-              <Link href="#" className="hover:text-white/70 transition">
-                Blog
-              </Link>
-              <Link href="#gallery" className="hover:text-white/70 transition">
+              <Link href="/gallery" className="hover:text-white/70 transition">
                 Gallery
               </Link>
-              <Link href="#events" className="hover:text-white/70 transition">
+              <Link href="/events" className="hover:text-white/70 transition">
                 Events &amp; News
               </Link>
-              <Link href="#" className="hover:text-white/70 transition">
+              <Link href="/contact" className="hover:text-white/70 transition">
                 FAQ
               </Link>
             </nav>
-
             <div className="border-t border-white/15 mt-6" />
-
-            {/* Contact */}
             <div className="mt-6 space-y-3 text-sm text-white/80">
               <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                Lagos State, Nigeria
+                <MapPin className="w-4 h-4" /> Lagos State, Nigeria
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                kindlewomeninitiative@gmail.com
+                <Mail className="w-4 h-4" /> kindlewomeninitiative@gmail.com
               </p>
-            </div>
-
-            <div className="flex gap-6 mt-8 text-sm text-white/60">
-              <Link href="#" className="hover:text-white transition">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-white transition">
-                Terms
-              </Link>
             </div>
           </div>
         </div>

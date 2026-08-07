@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 const approachSteps = [
   {
@@ -142,9 +145,11 @@ export default function RealityApproach() {
             </div>
           </div>
 
-          <button className="inline-flex items-center justify-center rounded-full bg-[#a8248c] px-8 py-4 text-sm font-bold text-white hover:bg-[#8D288D]-900 transition-all">
-            Read our story <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
+          <Link href="/about">
+            <Button className="inline-flex items-center justify-center rounded-full bg-[#a8248c] px-8 py-4 text-sm font-bold text-white hover:bg-[#8D288D] transition-all">
+              Read our story <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
 
