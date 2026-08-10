@@ -63,7 +63,7 @@ export default function DonateHeroForm() {
   return (
     <section className="w-full bg-[#FCFAFF] pt-32">
       {/* 1. Hero Section */}
-      <div className="mx-auto max-w-7xl px-6 mb-32">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6 mb-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 text-center lg:text-left">
           <div className="hidden lg:block w-1/4 h-[300px] relative bg-gray-200">
             <Image
@@ -100,7 +100,7 @@ export default function DonateHeroForm() {
 
       {/* 2. Form & Impact Section */}
       <section className="w-full flex justify-center py-16 md:py-24 bg-[#FCF3FC]">
-        <div className="w-full flex flex-col max-w-7xl px-6">
+        <div className="w-full flex flex-col w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             {/* Left: Text & Table */}
             <div className="flex flex-col">

@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 
 const impactTiers = [
   {
-    amount: "₦5,000",
+    amount: "$80",
     description: "One week of mentorship for a girl in our programme",
   },
   {
-    amount: "₦20,000",
+    amount: "$160",
     description: "A full TechUp skills training module for one participant",
   },
   {
-    amount: "₦50,000",
+    amount: "$500",
     description: "A partial grant toward a beneficiary's small business launch",
   },
   {
@@ -27,16 +27,16 @@ export default function DonationImpact() {
           TOP HALF: Dark Background
           ========================================= */}
       <section className="w-full bg-[#200920] flex justify-center">
-        <div className="w-full max-w-7xl pl-6 pr-6 lg:pr-0 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="w-full w-full max-w-[2000px] mx-auto px-6 md:px-[120px] pl-6 pr-6 lg:pr-0 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left: Text Block */}
           <div className="lg:col-span-5 py-16 lg:py-32 flex flex-col justify-center">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
               80% of every donation goes directly to programmes
             </h2>
             <p className="text-base text-gray-300 mb-10 leading-relaxed">
-              80% Programmes · 15% Administration · 5% Scaling & operations. Our
-              impact reports and third-party audits are public, because trust
-              has to be earned in the open.
+              70% Programmes · 20% Administration · 10% Scaling & operations.
+              Our impact reports and third-party audits are public, because
+              trust has to be earned in the open.
             </p>
             <div>
               <Button className="bg-transparent border border-white text-white hover:bg-white hover:text-[#200920] rounded-full px-10 py-6 text-xs font-bold uppercase tracking-widest transition-colors">
@@ -66,7 +66,7 @@ export default function DonationImpact() {
           ========================================= */}
       {/* Added relative z-0 so the image above can overlap on top of this background */}
       <section className="w-full bg-[#381138] flex justify-center py-20 lg:py-32 relative z-0">
-        <div className="w-full max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="w-full w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left: Title aligned with the top text */}
           <div className="lg:col-span-5">
             <h2 className="text-4xl md:text-5xl lg:text-[56px] font-serif font-bold text-white leading-tight">

@@ -3,7 +3,7 @@ import Link from "next/link";
 export function BuildAGirl() {
   return (
     <section className="w-full bg-white px-4 sm:px-6 lg:px-8 py-12">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px]">
         <div className="grid grid-cols-1 overflow-hidden bg-[#9B2185] lg:grid-cols-12">
           {/* Left: Text Block */}
           {/* THE FIX: Dropped lg:pl-16 to lg:pl-10 to inch the text to the left! */}

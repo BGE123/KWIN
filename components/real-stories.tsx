@@ -64,7 +64,7 @@ export default function RealStories() {
             REAL STORIES
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#1a1543]">
-            In [her] words
+            In her words
           </h2>
         </div>
 

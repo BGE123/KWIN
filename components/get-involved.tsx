@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const options = [
   {
@@ -28,7 +29,7 @@ const options = [
 export default function GetInvolved() {
   return (
     <section className="w-full bg-[#200920] py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         <div className="flex flex-col items-center text-center mb-16 ">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
             Get involved.
@@ -65,22 +66,23 @@ export default function GetInvolved() {
               </div>
 
               {/* Bottom Box */}
-              <div className="absolute bottom-6 left-6 right-6 z-20">
-                {/* FIX 2: Dark Smoked Glass 
-                    (Changed from bg-white/20 to bg-black/40 so the white text pops) */}
-                <div className="backdrop-blur-md bg-[#FFFFFF3D] border border-white/10 p-6 flex flex-col gap-6 transition-colors duration-300 group-hover:bg-black/60">
-                  {/* Description */}
-                  <p className="text-sm text-white leading-relaxed font-medium">
-                    {option.description}
-                  </p>
-
-                  {/* CTA with Arrow */}
-                  <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-white transition-transform">
-                    <span>{option.cta}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <Link href="/contact">
+                <div className="absolute bottom-6 left-6 right-6 z-20">
+                  {/* FIX 2: Dark Smoked Glass
+                      (Changed from bg-white/20 to bg-black/40 so the white text pops) */}
+                  <div className="backdrop-blur-md bg-[#FFFFFF3D] border border-white/10 p-6 flex flex-col gap-6 transition-colors duration-300 group-hover:bg-black/60">
+                    {/* Description */}
+                    <p className="text-sm text-white leading-relaxed font-medium">
+                      {option.description}
+                    </p>
+                    {/* CTA with Arrow */}
+                    <div className="flex items-center justify-between text-xs font-bold uppercase tracking-widest text-white transition-transform">
+                      <span>{option.cta}</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

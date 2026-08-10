@@ -119,7 +119,7 @@ export default function NewsGrid() {
 
   return (
     <section className="w-full bg-white pb-32 min-h-[500px]">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         {/* Search & Filter Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 border-b border-gray-200 pb-8">
           <form

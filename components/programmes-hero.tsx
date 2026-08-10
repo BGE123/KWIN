@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ProgrammesHero() {
   return (
     <section className="w-full bg-white pt-32 pb-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Left Images Column (Hidden on smaller screens for cleaner layout) */}
           <div className="hidden lg:block relative w-full lg:w-1/3 h-[450px]">

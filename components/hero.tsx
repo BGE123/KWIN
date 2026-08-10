@@ -24,18 +24,22 @@ export function Hero() {
       />
 
       {/* 3. CONTENT CONTAINER */}
-      <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 max-w-7xl mx-auto w-full">
+      <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto w-full">
         <div className="flex-1 flex flex-col justify-center mb-12">
           <div className="max-w-2xl">
-            <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight text-balance font-serif">
-              Fueling Hopes.
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight text-balance font-serif">
+              Building sustainable and formidable NATION, Empowering Generations
               <br />
-              Building Futures
+              Building Solid Cornerstones
             </h1>
             <p className="text-lg text-gray-100 mb-8 max-w-xl">
-              We equip Nigerian girls and women with education, mentorship, and
-              the skills to build their own businesses. A girl who is taught
-              becomes a woman who teaches a nation
+              Welcome to Kindle Women Initiative, a Faith-based non profit
+              organization dedicated to uplifting girls and women through
+              education, mentorship, skills development, and entrepreneurship,
+              especially in underserved communities. Our goal is to foster
+              educated, self-sufficient women prepared for global impact. One
+              girl at a time, one woman at a time. A girl who is taught becomes
+              a woman who teaches a nation.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">

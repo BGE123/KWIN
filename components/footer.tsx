@@ -85,7 +85,7 @@ export function Footer() {
   return (
     <footer id="contact" className="relative bg-[#2D0A2E] text-white no-invert">
       {/* Stay Connected banner - overlaps top edge */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative -translate-y-1/2 bg-[#9B2185] px-8 py-10 md:px-14 md:py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">
@@ -131,7 +131,7 @@ export function Footer() {
       </div>
 
       {/* Main footer content (Kept exactly as you provided) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
             <span className="font-serif text-5xl font-bold tracking-tight">
@@ -149,14 +149,32 @@ export function Footer() {
           <div className="lg:pt-2">
             <div className="flex items-center gap-4">
               {[
-                { icon: FacebookIcon, label: "Facebook" },
-                { icon: XIcon, label: "X" },
-                { icon: InstagramIcon, label: "Instagram" },
-                { icon: LinkedinIcon, label: "LinkedIn" },
-              ].map(({ icon: Icon, label }) => (
+                {
+                  icon: FacebookIcon,
+                  label: "Facebook",
+                  href: "https://www.facebook.com/kindlewomeninitiative/",
+                },
+                {
+                  icon: XIcon,
+                  label: "X",
+                  href: "https://twitter.com/your-kwin-handle",
+                },
+                {
+                  icon: InstagramIcon,
+                  label: "Instagram",
+                  href: "https://www.instagram.com/kindlewomeninitiative",
+                },
+                {
+                  icon: LinkedinIcon,
+                  label: "LinkedIn",
+                  href: "https://linkedin.com/company/your-kwin-page",
+                },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank" // Opens the link in a new tab
+                  rel="noopener noreferrer" // Security best practice for opening new tabs
                   aria-label={label}
                   className="flex items-center justify-center w-11 h-11 border border-white/30 hover:bg-white/10 transition"
                 >
@@ -196,7 +214,7 @@ export function Footer() {
             <div className="border-t border-white/15 mt-6" />
             <div className="mt-6 space-y-3 text-sm text-white/80">
               <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> Lagos State, Nigeria
+                <MapPin className="w-4 h-4" /> Abakaliki, Ebonyi State
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4" /> kindlewomeninitiative@gmail.com

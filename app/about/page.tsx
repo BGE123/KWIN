@@ -6,6 +6,7 @@ import { BuildAGirl } from "@/components/build-a-girl";
 import AboutValues from "@/components/about-values";
 import AboutProblems from "@/components/about-problems";
 import AboutProgress from "@/components/about-progress";
+import AboutTeam from "@/components/about-team";
 
 export default function AboutPage() {
   return (
@@ -14,6 +15,7 @@ export default function AboutPage() {
       <AboutSection />
       <AboutValues />
       <AboutProblems />
+      <AboutTeam />
       <AboutProgress />
       <BuildAGirl />
       <FAQ />

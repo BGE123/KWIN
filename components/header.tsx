@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -21,12 +22,17 @@ export function Header() {
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white/40 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto py-4 px-6">
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto py-4 px-6">
         <div className="flex justify-between items-center text-black">
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-black text-[#1a1543] font-serif">
-              KWIN
-            </span>
+            <Image
+              src="/logo.png"
+              alt="KWIN Logo"
+              width={120}
+              height={40}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

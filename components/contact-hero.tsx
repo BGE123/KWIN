@@ -15,7 +15,7 @@ export function ContactHero() {
       }}
     >
       {/* CONTENT CONTAINER */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 px-6 max-w-7xl mx-auto w-full pt-40">
+      <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 px-6 w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto w-full pt-40">
         <div className="flex items-end justify-between">
           <h1 className="text-5xl sm:text-7xl font-bold text-white mb-6 leading-tight font-serif">
             Let&apos;s talk

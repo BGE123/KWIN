@@ -29,12 +29,12 @@ const approachSteps = [
 ];
 
 const storyText =
-  "Kindle Women Initiative began with one founder's personal story of sacrifice and loss, and a conviction that no girl's future should depend on circumstances she didn't choose. Since 2021, that conviction has grown into a Lagos-based NGO working across six states, guided by four core values: Godliness, Time Management, Excellence, and Skillfulness.";
+  "Kindle Women Initiative began with one founder's personal story of sacrifice and loss, and a conviction that no girl's future should depend on circumstances she didn't choose. Core values: Godliness, Time Management, Excellence, and Skillfulness.";
 
 export default function RealityApproach() {
   return (
     <section className="w-full bg-[#FCF3FC] pt-24 pb-32">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         {/* PART 1: The Reality */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <div className="max-w-xl">

@@ -34,7 +34,7 @@ const problems = [
 export default function AboutProblems() {
   return (
     <section className="w-full bg-[#FCF3FC] py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         {/* The Split Container */}
         <div className="flex flex-col lg:flex-row w-full max-w-5xl mx-auto overflow-hidden shadow-2xl">
           {/* Left Side: Image */}

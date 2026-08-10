@@ -337,7 +337,7 @@ export default function DonateWaysToGive() {
 
       {/* 1. Volunteer Section */}
       <section className="w-full bg-[#92287A] py-24">
-        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="grid grid-cols-2 gap-4 h-[400px]">
             <div className="relative w-full h-full bg-gray-200 row-span-2">
               <Image
@@ -389,7 +389,7 @@ export default function DonateWaysToGive() {
       {/* 2. Partner Section */}
       <section className="w-full bg-white py-24">
         <div>
-          <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col items-start lg:pr-10">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4 block">
                 PARTNERSHIPS
@@ -434,7 +434,7 @@ export default function DonateWaysToGive() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-4 mx-auto max-w-7xl mt-16">
+        <div className="grid grid-cols-3 gap-4 mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mt-16">
           <div className="p-6 bg-[#FCF3FC] flex flex-col gap-2">
             <span className="text-4xl font-serif font-bold text-[#1a1543]">
               45+

@@ -9,7 +9,7 @@ const stats = [
   },
   {
     value: "6",
-    label: "States active in",
+    label: "States expanded",
   },
   {
     value: "85%",

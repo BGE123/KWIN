@@ -45,7 +45,7 @@ export default function ContactForm() {
 
   return (
     <section className="w-full bg-[#FAFAFA] py-24">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column: Form */}
           <div className="flex flex-col bg-white p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-sm border border-gray-100">
@@ -74,7 +74,7 @@ export default function ContactForm() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-black">
                       Your Name
                     </label>
                     <input
@@ -85,7 +85,7 @@ export default function ContactForm() {
                         setFormData({ ...formData, name: e.target.value })
                       }
                       placeholder="e.g. Samuel Prince"
-                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors text-black"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -100,7 +100,7 @@ export default function ContactForm() {
                         setFormData({ ...formData, email: e.target.value })
                       }
                       placeholder="e.g. you@email.com"
-                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors text-black"
                     />
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function ContactForm() {
                         setFormData({ ...formData, phone: e.target.value })
                       }
                       placeholder="+234"
-                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors"
+                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] transition-colors text-black"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -129,7 +129,7 @@ export default function ContactForm() {
                       onChange={(e) =>
                         setFormData({ ...formData, country: e.target.value })
                       }
-                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] bg-white transition-colors"
+                      className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] bg-white transition-colors text-black"
                     >
                       <option>Nigeria</option>
                       <option>Ghana</option>
@@ -150,10 +150,11 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, subject: e.target.value })
                     }
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] bg-white transition-colors"
+                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] bg-white transition-colors text-black"
                   >
                     <option>I want to donate</option>
                     <option>I want to volunteer</option>
+                    <option>I want to partner wih you</option>
                     <option>Partnership inquiry</option>
                     <option>General inquiry</option>
                   </select>
@@ -171,7 +172,7 @@ export default function ContactForm() {
                     }
                     rows={5}
                     placeholder="Tell us what you'd like to in details"
-                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] resize-none transition-colors"
+                    className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] resize-none transition-colors text-black"
                   ></textarea>
                 </div>
 
@@ -210,10 +211,10 @@ export default function ContactForm() {
                   Email
                 </span>
                 <a
-                  href="mailto:kindlewomeninitiative@gmail.com"
+                  href="mailto:info@kindlewomeninitiative.org"
                   className="text-sm font-bold text-[#1a1543] underline decoration-1 underline-offset-2 hover:text-[#a8248c] transition-colors break-all"
                 >
-                  kindlewomeninitiative@gmail.com
+                  info@kindlewomeninitiative.org
                 </a>
               </div>
             </div>
@@ -226,7 +227,7 @@ export default function ContactForm() {
                   Address
                 </span>
                 <span className="text-sm font-bold text-[#1a1543] underline decoration-1 underline-offset-2">
-                  Lagos State, Nigeria
+                  Abakaliki, Ebonyi State, Nigeria
                 </span>
               </div>
             </div>

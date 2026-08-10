@@ -17,7 +17,7 @@ export default function GalleryHero() {
 
       {/* Content */}
       <div className="absolute bottom-0 w-full no-invert">
-        <div className="mx-auto max-w-7xl px-6 pb-12 md:pb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+        <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6 pb-12 md:pb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight max-w-2xl">
             See the work, not just the numbers
           </h1>

@@ -14,7 +14,7 @@ export default async function NewsEvents() {
 
   return (
     <section className="w-full bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-4">
