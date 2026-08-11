@@ -27,10 +27,10 @@ export function Hero() {
       <div className="relative z-10 flex-1 flex flex-col justify-between pt-32 pb-12 px-6 w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto w-full">
         <div className="flex-1 flex flex-col justify-center mb-12">
           <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight text-balance font-serif">
-              Building sustainable and formidable NATION, Empowering Generations
+            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight text-balance font-serif">
+              Empowering Girls Today,
               <br />
-              Building Solid Cornerstones
+              Building Stronger Nations Tomorrow
             </h1>
             <p className="text-lg text-gray-100 mb-8 max-w-xl">
               Welcome to Kindle Women Initiative, a Faith-based non profit

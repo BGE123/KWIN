@@ -20,7 +20,7 @@ const stories = [
     role: "Mentorship programme, Abuja",
     quote:
       "Having a mentor who looked like me and had achieved what I wanted to achieve changed my entire perspective on what is possible.",
-    image: "/landing-page/stories1.jpg",
+    image: "/girl1.jpg",
   },
   {
     id: "03",
@@ -29,7 +29,7 @@ const stories = [
     role: "Business grant recipient, Enugu",
     quote:
       "The grant wasn't just money; it was someone believing in my idea enough to back it. My bakery now employs four women.",
-    image: "/landing-page/stories2.jpg",
+    image: "/girl2.jpg",
   },
   {
     id: "04",
@@ -38,7 +38,7 @@ const stories = [
     role: "Education scholarship, Kaduna",
     quote:
       "I am the first girl in my family to finish secondary school. KWIN gave me the resources, but also the courage to keep going.",
-    image: "/landing-page/stories3.png",
+    image: "/girl3.jpg",
   },
   {
     id: "05",

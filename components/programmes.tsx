@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react"; // Kept this one for your "Learn more" button!
+import Link from "next/link";
 
 const programmes = [
   {
@@ -92,10 +93,12 @@ export default function Programmes() {
                 <p className="text-gray-500 mb-8 leading-relaxed">
                   {prog.description}
                 </p>
-                <button className="flex items-center text-sm font-bold text-[#a8248c] hover:text-purple-900 transition-colors group">
-                  Learn more{" "}
-                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                <Link href="/programmes">
+                  <button className="flex items-center text-sm font-bold text-[#a8248c] hover:text-purple-900 transition-colors group">
+                    Learn more{" "}
+                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </Link>
               </div>
 
               {/* Image with offset background */}

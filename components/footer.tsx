@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; // <-- Added this import
 import { MapPin, Mail } from "lucide-react";
 
 // (Keep your FacebookIcon, XIcon, InstagramIcon, LinkedinIcon here just like you had them!)
@@ -130,17 +131,24 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main footer content (Kept exactly as you provided) */}
+      {/* Main footer content */}
       <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto px-4 sm:px-6 lg:px-8 pb-12 -mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <div>
-            <span className="font-serif text-5xl font-bold tracking-tight">
-              KWIN
-            </span>
+            {/* Replace Text with Logo Image */}
+            <Image
+              src="/logo1.png"
+              alt="KWIN Logo"
+              width={160}
+              height={53}
+              // Note: If your logo is dark and you want it to be white on this dark background,
+              // change the className to: "h-12 w-auto object-contain brightness-0 invert"
+              className="h-12 w-auto object-contain"
+            />
+
             <p className="mt-6 text-white/70 text-sm leading-relaxed max-w-md">
               Equipping Nigerian girls and women with education, mentorship, and
-              the skills to build their own futures. Registered NGO, active in
-              Lagos State since 2021.
+              the skills to build their own futures.
             </p>
             <p className="mt-16 text-white/50 text-sm">
               &copy; 2026 Kindle Women Initiative. All rights reserved
@@ -217,7 +225,7 @@ export function Footer() {
                 <MapPin className="w-4 h-4" /> Abakaliki, Ebonyi State
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4" /> kindlewomeninitiative@gmail.com
+                <Mail className="w-4 h-4" /> info@kindlewomeninitiative.org
               </p>
             </div>
           </div>

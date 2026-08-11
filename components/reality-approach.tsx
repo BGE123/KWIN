@@ -28,13 +28,17 @@ const approachSteps = [
   },
 ];
 
+// 1. Updated story text (removed the middle sentence and the core values from here)
 const storyText =
-  "Kindle Women Initiative began with one founder's personal story of sacrifice and loss, and a conviction that no girl's future should depend on circumstances she didn't choose. Core values: Godliness, Time Management, Excellence, and Skillfulness.";
+  "Kindle Women Initiative began with one founder's personal story of sacrifice and loss, and a conviction that no girl's future should depend on circumstances she didn't choose.";
+
+// 2. Extracted the new core values to stand on their own
+const coreValues = ["Godliness", "Productivity", "Excellence", "Skillfulness"];
 
 export default function RealityApproach() {
   return (
     <section className="w-full bg-[#FCF3FC] pt-24 pb-32">
-      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px]">
         {/* PART 1: The Reality */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <div className="max-w-xl">
@@ -132,16 +136,34 @@ export default function RealityApproach() {
           </div>
         </div>
 
-        {/* PART 3: The Story — vertical marquee, full opacity, no fade */}
+        {/* PART 3: The Story */}
         <div className="flex flex-col items-center">
-          <div className="w-full max-w-3xl mx-auto h-[420px] overflow-hidden mb-12">
+          {/* Reduced height from 420px to 300px since the text is shorter */}
+          <div className="w-full max-w-3xl mx-auto h-[300px] overflow-hidden mb-8">
             <div className="flex flex-col animate-marquee-vertical">
-              <p className="text-3xl md:text-4xl font-serif font-semibold text-[#1a1543] text-center py-16">
+              <p className="text-3xl md:text-4xl font-serif font-semibold text-[#1a1543] text-center py-12">
                 {storyText}
               </p>
-              <p className="text-3xl md:text-4xl font-serif font-semibold text-[#1a1543] text-center py-16">
+              <p className="text-3xl md:text-4xl font-serif font-semibold text-[#1a1543] text-center py-12">
                 {storyText}
               </p>
+            </div>
+          </div>
+
+          {/* THE FIX: Core Values standing on their own */}
+          <div className="mb-14 flex flex-col items-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#a8248c] mb-5 block">
+              Core Values
+            </span>
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+              {coreValues.map((value) => (
+                <span
+                  key={value}
+                  className="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-bold text-[#1a1543] shadow-sm"
+                >
+                  {value}
+                </span>
+              ))}
             </div>
           </div>
 

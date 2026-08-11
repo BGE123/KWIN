@@ -22,11 +22,12 @@ export function Header() {
 
   return (
     <header className="fixed w-full top-0 z-50 bg-white/40 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mx-auto py-4 px-6">
+      {/* Cleaned up the duplicate mx-auto and px-6 classes here */}
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] py-4">
         <div className="flex justify-between items-center text-black">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="KWIN Logo"
               width={120}
               height={40}
@@ -43,8 +44,9 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  // Text stays default color, only becomes bold with the underline
                   className={`relative transition-colors hover:text-[#a8248c] pb-1 ${
-                    isActive ? "text-[#a8248c] font-bold" : ""
+                    isActive ? "font-bold" : ""
                   }`}
                 >
                   {link.name}
@@ -97,10 +99,9 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`text-sm font-bold py-3 border-b border-black/5 transition-colors ${
-                  isActive
-                    ? "text-[#a8248c] pl-2 border-l-4 border-l-[#a8248c]"
-                    : "text-gray-700 hover:text-[#a8248c]"
+                // Keeps default text color, adds left border on active
+                className={`text-sm font-bold py-3 border-b border-black/5 transition-colors text-gray-700 hover:text-[#a8248c] ${
+                  isActive ? "pl-2 border-l-4 border-l-[#a8248c]" : ""
                 }`}
               >
                 {link.name}

@@ -9,6 +9,7 @@ const options = [
     description: "Fund a girl's education, mentorship, or grant",
     cta: "SPONSOR NOW",
     image: "/landing-page/inv1.jpg",
+    link: "/donate", // <-- Unique link for Donate
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const options = [
     description: "Share your expertise in mentorship, tech, or business",
     cta: "REGISTER NOW",
     image: "/landing-page/inv2.jpg",
+    link: "/contact", // <-- Routes to Contact
   },
   {
     id: 3,
@@ -23,13 +25,15 @@ const options = [
     description: "Bring your organisation's resources to scale our reach",
     cta: "PARTNER WITH US",
     image: "/landing-page/inv3.jpg",
+    link: "/contact", // <-- Routes to Contact
   },
 ];
 
 export default function GetInvolved() {
   return (
     <section className="w-full bg-[#200920] py-24">
-      <div className="mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] px-6">
+      {/* Cleaned up duplicate classes here */}
+      <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px]">
         <div className="flex flex-col items-center text-center mb-16 ">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
             Get involved.
@@ -54,8 +58,7 @@ export default function GetInvolved() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105 z-0"
               />
 
-              {/* FIX 1: The Dark Gradient Overlay 
-                  (Dark at the top for the title, dark at the bottom for the box, clear in the middle) */}
+              {/* The Dark Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-black/70 z-10 pointer-events-none" />
 
               {/* Top Title */}
@@ -65,11 +68,9 @@ export default function GetInvolved() {
                 </h3>
               </div>
 
-              {/* Bottom Box */}
-              <Link href="/contact">
+              {/* Bottom Box with Dynamic Link */}
+              <Link href={option.link}>
                 <div className="absolute bottom-6 left-6 right-6 z-20">
-                  {/* FIX 2: Dark Smoked Glass
-                      (Changed from bg-white/20 to bg-black/40 so the white text pops) */}
                   <div className="backdrop-blur-md bg-[#FFFFFF3D] border border-white/10 p-6 flex flex-col gap-6 transition-colors duration-300 group-hover:bg-black/60">
                     {/* Description */}
                     <p className="text-sm text-white leading-relaxed font-medium">
