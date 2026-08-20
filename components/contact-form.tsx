@@ -171,7 +171,7 @@ export default function ContactForm() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     rows={5}
-                    placeholder="Tell us what you'd like to in details"
+                    placeholder="Tell us what you'd like to do in detail"
                     className="border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#a8248c] resize-none transition-colors text-black"
                   ></textarea>
                 </div>

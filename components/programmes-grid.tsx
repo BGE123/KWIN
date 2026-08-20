@@ -137,21 +137,6 @@ export default function ProgrammesGrid() {
                         ))}
                       </div>
                     )}
-
-                    <div className="mt-auto flex flex-col items-start">
-                      {prog.footerText && (
-                        <p className="text-[#a8248c] italic text-sm font-medium mb-6">
-                          {prog.footerText}
-                        </p>
-                      )}
-
-                      <Button
-                        onClick={() => handleOpenModal(prog)}
-                        className="bg-[#a8248c] hover:bg-[#8D288D] text-white rounded-full px-8 py-6 text-xs font-bold uppercase tracking-widest transition-colors shadow-lg shadow-[#a8248c]/20"
-                      >
-                        {prog.buttonText}
-                      </Button>
-                    </div>
                   </div>
                 </div>
               ))}
