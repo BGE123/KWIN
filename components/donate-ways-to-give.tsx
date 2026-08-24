@@ -434,26 +434,6 @@ export default function DonateWaysToGive() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-4 mx-auto w-full max-w-[2000px] mx-auto px-6 md:px-[120px] mt-16">
-          <div className="p-6 bg-[#FCF3FC] flex flex-col gap-2">
-            <span className="text-4xl font-serif font-bold text-[#1a1543]">
-              45+
-            </span>
-            <span className="text-xs text-gray-500 font-medium">Partners</span>
-          </div>
-          <div className="p-6 border border-[#8D288D] flex flex-col gap-2">
-            <span className="text-4xl font-serif font-bold text-[#1a1543]">
-              12,000+
-            </span>
-            <span className="text-xs text-gray-500 font-medium">Mentors</span>
-          </div>
-          <div className="p-6 border border-[#8D288D] flex flex-col gap-2">
-            <span className="text-4xl font-serif font-bold text-[#1a1543]">
-              ₦450M
-            </span>
-            <span className="text-xs text-gray-500 font-medium">Raised</span>
-          </div>
-        </div>
       </section>
     </div>
   );

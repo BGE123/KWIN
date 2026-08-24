@@ -134,7 +134,7 @@ export default function FinancialChart() {
               inView ? "scale-100" : "scale-0"
             }`}
           >
-            15%
+            20%
           </div>
 
           {/* 5% Bubble (Grey) */}
@@ -143,7 +143,7 @@ export default function FinancialChart() {
               inView ? "scale-100" : "scale-0"
             }`}
           >
-            5%
+            10%
           </div>
 
           {/* 80% Bubble (Purple) */}
@@ -152,7 +152,7 @@ export default function FinancialChart() {
               inView ? "scale-100" : "scale-0"
             }`}
           >
-            80%
+            70%
           </div>
         </div>
 
@@ -192,7 +192,7 @@ export default function FinancialChart() {
       </div>
 
       {/* BOTTOM LINKS */}
-      <div
+      {/* <div
         className={`flex flex-col md:flex-row items-center gap-4 mt-20 transition-all duration-1000 delay-[1600ms] ${
           inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
@@ -220,7 +220,7 @@ export default function FinancialChart() {
             <ExternalLink className="w-3.5 h-3.5" />
           </Link>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

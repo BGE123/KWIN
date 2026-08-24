@@ -8,10 +8,14 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/header";
 
 // Custom SVGs for Social Icons
-function XIcon({ className }: { className?: string }) {
+function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+      />
     </svg>
   );
 }
@@ -31,7 +35,7 @@ interface TeamMember {
   bioParagraphs: string[];
   image: string;
   linkedin?: string;
-  twitter?: string;
+  facebook?: string;
 }
 
 // Founder Profile
@@ -47,8 +51,8 @@ const founder: TeamMember = {
     "As the Founder of Kindle Women Initiative (KWIN), Salome is driven by a vision of raising educated, confident, and financially independent women who can transform families, communities, and nations. Through education, mentorship, scholarships, entrepreneurship, and leadership development, she continues to create opportunities that empower girls and women to realise their full potential and become catalysts for lasting societal change. Her work stands at the intersection of research, leadership, education, technology, and social impact, reflecting a lifelong commitment to empowering people and building stronger communities through knowledge and opportunity.",
   ],
   image: "/about/salome.jpg",
-  linkedin: "#",
-  twitter: "#",
+  linkedin: "https://www.linkedin.com/in/salome-uwah/",
+  facebook: "https://www.facebook.com/UwahSalome",
 };
 
 // Executive & Project Team
@@ -63,8 +67,8 @@ const teamMembers: TeamMember[] = [
       "Through his experiences with young people and community-focused initiatives, Ikemsinachi has developed a deep belief in the importance of giving young people access to the right knowledge, mentorship, skills, and opportunities to discover their potential. He believes that empowering a girl is not just about changing her story, it is about giving her the confidence and opportunity to change the stories of others around her.",
     ],
     image: "/about/gideon.png",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/ikemsinachi-nweze-368bb5269/",
+    facebook: "https://www.facebook.com/Mr.DEON1",
   },
 ];
 
@@ -117,140 +121,140 @@ export default function TeamPage() {
 
   return (
     <>
-    <Header />
-    <main className="flex-1 bg-white pt-24">
-      {/* Hero Section */}
-      <section className="bg-[#FDF8FD] py-20 border-b border-gray-100">
-        <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] text-center">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4 block">
-            The Faces Behind KWIN
-          </span>
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#1a1543] mb-6">
-            Meet Our Team
-          </h1>
-          <p className="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
-            Meet the leaders shaping our strategy, education programs, and commitment to empowering Nigerian women and girls.
-          </p>
-        </div>
-      </section>
-
-      {/* Circular Team Showcase */}
-      <section className="py-24">
-        <div className="w-full max-w-[1200px] mx-auto px-6">
-          {/* Top Founder Section */}
-          <div className="flex justify-center mb-20">
-            <MemberCircleCard member={founder} isFounder={true} />
+      <Header />
+      <main className="flex-1 bg-white pt-24">
+        {/* Hero Section */}
+        <section className="bg-[#FDF8FD] py-20 border-b border-gray-100">
+          <div className="w-full max-w-[2000px] mx-auto px-6 md:px-[120px] text-center">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#a8248c] mb-4 block">
+              The Faces Behind KWIN
+            </span>
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#1a1543] mb-6">
+              Meet Our Team
+            </h1>
+            <p className="max-w-2xl mx-auto text-gray-600 text-lg leading-relaxed">
+              Meet the leaders shaping our strategy, education programs, and commitment to empowering Nigerian women and girls.
+            </p>
           </div>
+        </section>
 
-          {/* Other Team Members Grid */}
-          {teamMembers.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 justify-items-center">
-              {teamMembers.map((member, index) => (
-                <MemberCircleCard key={index} member={member} />
-              ))}
+        {/* Circular Team Showcase */}
+        <section className="py-24">
+          <div className="w-full max-w-[1200px] mx-auto px-6">
+            {/* Top Founder Section */}
+            <div className="flex justify-center mb-20">
+              <MemberCircleCard member={founder} isFounder={true} />
             </div>
-          )}
-        </div>
-      </section>
 
-      {/* Bio Modal */}
-      {selectedMember && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          {/* Backdrop click to dismiss */}
-          <div
-            className="absolute inset-0"
-            onClick={() => setSelectedMember(null)}
-          />
+            {/* Other Team Members Grid */}
+            {teamMembers.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16 justify-items-center">
+                {teamMembers.map((member, index) => (
+                  <MemberCircleCard key={index} member={member} />
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
 
-          {/* Modal Content Box */}
-          <div className="relative bg-white w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
-            {/* Close Button */}
-            <button
+        {/* Bio Modal */}
+        {selectedMember && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+            {/* Backdrop click to dismiss */}
+            <div
+              className="absolute inset-0"
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 md:bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#a8248c] hover:text-white transition-colors"
-              aria-label="Close modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            />
 
-            {/* Modal Image on Left */}
-            <div className="relative w-full md:w-5/12 h-72 md:h-auto min-h-[320px] bg-gray-100 shrink-0">
-              <Image
-                src={selectedMember.image}
-                alt={selectedMember.name}
-                fill
-                className="object-cover object-top"
-              />
-            </div>
+            {/* Modal Content Box */}
+            <div className="relative bg-white w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col md:flex-row animate-in zoom-in-95 duration-200">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedMember(null)}
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/80 md:bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#a8248c] hover:text-white transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            {/* Modal Content on Right */}
-            <div className="p-8 md:p-10 flex-1 overflow-y-auto flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#a8248c] mb-2 block">
-                  {selectedMember.role}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#1a1543] mb-4">
-                  {selectedMember.name}
-                </h3>
-                <div className="w-12 h-1 bg-[#a8248c] mb-6 rounded-full" />
+              {/* Modal Image on Left */}
+              <div className="relative w-full md:w-5/12 h-72 md:h-auto min-h-[320px] bg-gray-100 shrink-0">
+                <Image
+                  src={selectedMember.image}
+                  alt={selectedMember.name}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
 
-                {/* Multi-Paragraph Bio Display */}
-                <div className="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed mb-8">
-                  {selectedMember.bioParagraphs.map((paragraph, pIndex) => (
-                    <p key={pIndex}>{paragraph}</p>
-                  ))}
+              {/* Modal Content on Right */}
+              <div className="p-8 md:p-10 flex-1 overflow-y-auto flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#a8248c] mb-2 block">
+                    {selectedMember.role}
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#1a1543] mb-4">
+                    {selectedMember.name}
+                  </h3>
+                  <div className="w-12 h-1 bg-[#a8248c] mb-6 rounded-full" />
+
+                  {/* Multi-Paragraph Bio Display */}
+                  <div className="space-y-4 text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+                    {selectedMember.bioParagraphs.map((paragraph, pIndex) => (
+                      <p key={pIndex}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Social Links */}
+                <div className="flex items-center gap-3 pt-6 border-t border-gray-100">
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                    Connect:
+                  </span>
+                  {selectedMember.linkedin && (
+                    <a
+                      href={selectedMember.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#a8248c] hover:text-white transition-colors"
+                    >
+                      <LinkedinIcon className="w-4 h-4" />
+                    </a>
+                  )}
+                  {selectedMember.facebook && (
+                    <a
+                      href={selectedMember.facebook}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#a8248c] hover:text-white transition-colors"
+                    >
+                      <FacebookIcon className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </div>
-
-              {/* Social Links */}
-              <div className="flex items-center gap-3 pt-6 border-t border-gray-100">
-                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  Connect:
-                </span>
-                {selectedMember.linkedin && (
-                  <a
-                    href={selectedMember.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#a8248c] hover:text-white transition-colors"
-                  >
-                    <LinkedinIcon className="w-4 h-4" />
-                  </a>
-                )}
-                {selectedMember.twitter && (
-                  <a
-                    href={selectedMember.twitter}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#a8248c] hover:text-white transition-colors"
-                  >
-                    <XIcon className="w-3.5 h-3.5" />
-                  </a>
-                )}
-              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Volunteer CTA */}
-      <section className="bg-[#1a1543] py-24 text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-            Want to be part of our story?
-          </h2>
-          <p className="text-gray-400 mb-10 text-lg">
-            We are always looking for passionate volunteers, mentors, and
-            partners to help us scale our impact across Nigeria.
-          </p>
-          <Link href="/contact">
-            <Button className="bg-[#a8248c] hover:bg-[#8D288D] text-white rounded-full px-10 py-6 text-xs font-bold uppercase tracking-widest transition-colors">
-              BECOME A VOLUNTEER <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </main>
+        {/* Volunteer CTA */}
+        <section className="bg-[#1a1543] py-24 text-center">
+          <div className="max-w-3xl mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+              Want to be part of our story?
+            </h2>
+            <p className="text-gray-400 mb-10 text-lg">
+              We are always looking for passionate volunteers, mentors, and
+              partners to help us scale our impact across Nigeria.
+            </p>
+            <Link href="/contact">
+              <Button className="bg-[#a8248c] hover:bg-[#8D288D] text-white rounded-full px-10 py-6 text-xs font-bold uppercase tracking-widest transition-colors">
+                BECOME A VOLUNTEER <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+      </main>
     </>
   );
 }

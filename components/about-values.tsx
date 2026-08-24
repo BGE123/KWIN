@@ -10,12 +10,12 @@ const principles = [
   {
     title: "Vision",
     description:
-      "To empower girls and women with access to education, mentorship, entrepreneurship, and financial opportunities, enabling them to build healthier, more resilient families and communities.",
+      "To create a continent where women are educated, financially empowered, and equipped to build healthier and more prosperous families across generations.",
   },
   {
     title: "Mission",
     description:
-      "To create a continent where women are educated, financially empowered, and equipped to build healthier and more prosperous families across generations.",
+      "To empower girls and women with access to education, mentorship, entrepreneurship, and financial opportunities, enabling them to build healthier, more resilient families and communities.",
   },
   {
     title: "2033 GOAL",

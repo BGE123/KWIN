@@ -5,41 +5,41 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const amounts = [
-  "₦1,000",
-  "₦5,000",
-  "₦10,000",
-  "₦15,000",
-  "₦20,000",
-  "₦25,000",
-  "₦30,000",
-  "₦35,000",
-  "₦40,000",
-  "₦45,000",
-  "₦50,000",
-  "₦100,000",
+  "$80",
+  "$150",
+  "$200",
+  "$300",
+  "$500",
+  "$800",
+  "$1000",
+  "$2000",
+  "$5000",
+  "$7500",
+  "$10,000",
+  "$15,000",
 ];
 
 const impactRows = [
   {
-    amount: "₦1,000",
+    amount: "$80",
     provides: "One week of mentorship for a girl in our programme",
   },
   {
-    amount: "₦2,000",
+    amount: "$160",
     provides: "A full TechUp skills training module for one participant",
   },
   {
-    amount: "₦5,000",
+    amount: "$500",
     provides: "A partial grant toward a beneficiary's small business launch",
   },
   {
-    amount: "₦8,000",
-    provides: "A partial grant toward a beneficiary's small business launch",
+    amount: " Custom",
+    provides: "Tell us your amount, we'll show you the impact",
   },
 ];
 
 export default function DonateHeroForm() {
-  const [selectedAmount, setSelectedAmount] = useState("₦5,000");
+  const [selectedAmount, setSelectedAmount] = useState("$80");
   const [customAmount, setCustomAmount] = useState("");
   const [isMonthly, setIsMonthly] = useState(false);
 
@@ -52,12 +52,12 @@ export default function DonateHeroForm() {
     const value = e.target.value.replace(/[^0-9]/g, "");
     setCustomAmount(value);
     if (value) {
-      setSelectedAmount(`₦${Number(value).toLocaleString()}`);
+      setSelectedAmount(`$${Number(value).toLocaleString()}`);
     }
   };
 
   const displayAmount = customAmount
-    ? `₦${Number(customAmount).toLocaleString()}`
+    ? `$${Number(customAmount).toLocaleString()}`
     : selectedAmount;
 
   return (

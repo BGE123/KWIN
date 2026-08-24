@@ -24,7 +24,7 @@ export function BuildAGirl() {
             </p>
             <div className="mt-10">
               <Link
-                href="#get-involved"
+                href="/contact"
                 className="inline-flex items-center rounded-full bg-white px-10 py-5 text-sm font-bold tracking-widest text-[#9B2185] transition hover:bg-gray-100"
               >
                 GET INVOLVED
