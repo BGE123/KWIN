@@ -409,9 +409,6 @@ export default function DonateWaysToGive() {
                 >
                   BECOME A PARTNER
                 </Button>
-                <Button className="bg-transparent border border-gray-200 text-[#1a1543] hover:border-[#92287A] hover:text-[#92287A] rounded-full font-bold text-[10px] uppercase tracking-widest px-8 py-5 transition-colors">
-                  DOWNLOAD BROCHURE
-                </Button>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-[44px] h-[400px] md:h-[547px]">
